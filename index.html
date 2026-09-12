@@ -1,600 +1,2201 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معبر الخليج العصري | Modern Gulf Crossing</title>
-    <!-- Google Fonts for Luxury & Italic Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,400;0,700;1,600;1,800&family=Playfair+Display:ital,wght@1,600;1,800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --sky-blue: #0ea5e9;
-            --sky-blue-light: #e0f2fe;
-            --sky-blue-dark: #0284c7;
-            
-            --gold-yellow: #f59e0b;
-            --gold-yellow-hover: #d97706;
-            
-            --soft-pink: #ec4899;
-            --soft-pink-light: #fce7f3;
-            
-            --dark-navy: #0f172a;
-            --card-bg: #ffffff;
-            --bg-light: #f8fafc;
-            
-            --luxury-font: 'Cairo', 'Playfair Display', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            background-color: var(--bg-light); 
-            color: var(--dark-navy); 
-            line-height: 1.6; 
-            font-family: var(--luxury-font);
-        }
+<title>معبر الخليج العصري | Modern Gulf Crossing</title>
 
-        /* Top Bar with Home Icon */
-        .top-bar {
-            background: var(--dark-navy);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--sky-blue);
-        }
+<style>
+:root{
+    --navy:#071827;
+    --navy2:#0c2538;
+    --blue:#0794d1;
+    --blue2:#0bc5f5;
+    --gold:#d8a72b;
+    --gold2:#f4c95d;
+    --white:#ffffff;
+    --light:#f4f8fb;
+    --text:#172b3a;
+    --muted:#647789;
+    --green:#19a974;
+    --border:#dce7ee;
+}
 
-        .home-icon-btn {
-            background: linear-gradient(135deg, var(--sky-blue), var(--soft-pink));
-            color: white;
-            border: none;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-weight: bold;
-            font-style: italic;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(14, 165, 233, 0.3);
-        }
-        .home-icon-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
-            background: linear-gradient(135deg, var(--gold-yellow), var(--soft-pink));
-            color: var(--dark-navy);
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+}
 
-        .lang-btn {
-            background: var(--gold-yellow);
-            color: var(--dark-navy);
-            border: none;
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-            font-weight: bold;
-            font-style: italic;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .lang-btn:hover { background: #fef08a; }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* Animated Title & Header Banner */
-        header {
-            background: linear-gradient(135deg, #0284c7 0%, #0f172a 60%, #ec4899 100%);
-            color: white;
-            padding: 2.5rem 1rem;
-            text-align: center;
-            border-bottom: 4px solid var(--gold-yellow);
-            overflow: hidden;
-        }
+body{
+    background:var(--light);
+    color:var(--text);
+    line-height:1.7;
+}
 
-        header h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            font-style: italic;
-            margin-bottom: 0.4rem;
-            background: linear-gradient(270deg, #ffffff, #fef08a, #7dd3fc, #fbcfe8, #ffffff);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientText 6s ease infinite;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+/* =========================
+   TOP BAR
+========================= */
 
-        @keyframes gradientText {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+.top-bar{
+    background:var(--navy);
+    color:white;
+    min-height:48px;
+    padding:8px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-        header p {
-            color: #fef08a;
-            font-weight: 700;
-            font-style: italic;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-        }
+.brand-mini{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.82rem;
+    color:#d9e9f2;
+}
 
-        /* Navigation Bar */
-        nav.main-nav {
-            background: #1e293b;
-            border-bottom: 3px solid var(--sky-blue);
-            padding: 0.5rem 1rem;
-            overflow-x: auto;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        nav.main-nav ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            gap: 0.6rem;
-            white-space: nowrap;
-        }
-        nav.main-nav ul li button {
-            background: transparent;
-            border: 1px solid transparent;
-            color: #e2e8f0;
-            font-weight: 700;
-            font-style: italic;
-            font-size: 0.95rem;
-            padding: 0.45rem 0.9rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        nav.main-nav ul li button:hover, nav.main-nav ul li button.active {
-            background: linear-gradient(135deg, var(--sky-blue), var(--soft-pink));
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
-        }
+.oman-flag{
+    width:32px;
+    height:22px;
+    border-radius:3px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 2px 7px rgba(0,0,0,.25);
+    position:relative;
+    flex-shrink:0;
+}
 
-        .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+.oman-flag .red{
+    width:9px;
+    background:#c8102e;
+}
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+.oman-flag .flag-main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.oman-flag .white{
+    flex:1;
+    background:#fff;
+}
 
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 3rem 1.5rem;
-            border-radius: 14px;
-            margin-bottom: 2rem;
-            border: 2px solid var(--sky-blue);
-            box-shadow: 0 6px 16px rgba(14, 165, 233, 0.15);
-        }
-        .hero h2 { font-size: 1.85rem; font-style: italic; color: #fef08a; margin-bottom: 0.8rem; }
-        .hero p { font-size: 1.05rem; font-style: italic; max-width: 850px; margin: auto; line-height: 1.8; color: #f1f5f9; }
+.oman-flag .redline{
+    flex:1;
+    background:#c8102e;
+}
 
-        /* Section Cards */
-        .info-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
-            border-right: 5px solid var(--sky-blue);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-        html[dir="ltr"] .info-card {
-            border-right: 1px solid #e2e8f0;
-            border-left: 5px solid var(--sky-blue);
-        }
-        .info-card h2 { color: var(--sky-blue-dark); font-style: italic; margin-bottom: 1rem; font-size: 1.45rem; }
-        .info-card p { font-size: 1.05rem; color: #334155; line-height: 1.8; }
+.oman-flag .green{
+    flex:1;
+    background:#009a44;
+}
 
-        /* Showcase Grid & Auto Slider / Video */
-        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        
-        .slider-container, .video-container {
-            position: relative;
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            background: #000;
-        }
-        .slider-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slider-img.active { opacity: 1; }
+.home-icon-btn,
+.lang-btn{
+    border:0;
+    cursor:pointer;
+    font-weight:700;
+}
 
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.home-icon-btn{
+    background:transparent;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
 
-        .card-content { padding: 1.2rem; text-align: center; }
-        .card h3 { color: var(--dark-navy); font-style: italic; margin-bottom: 0.4rem; font-size: 1.15rem; }
-        .card p { color: #64748b; font-size: 0.92rem; }
+.lang-btn{
+    background:var(--gold);
+    color:var(--navy);
+    padding:7px 15px;
+    border-radius:20px;
+}
 
-        /* Sizes Table Section */
-        .sizes-section { background: white; padding: 2rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
-        .sizes-section h2 { text-align: center; font-style: italic; color: var(--dark-navy); margin-bottom: 0.4rem; font-size: 1.55rem; }
-        .sizes-section p.subtitle { text-align: center; font-style: italic; color: var(--soft-pink); font-weight: bold; margin-bottom: 2rem; }
+/* =========================
+   HEADER
+========================= */
 
-        .sizes-table-wrapper { overflow-x: auto; margin-bottom: 2rem; }
-        .sizes-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: right;
-            font-size: 0.95rem;
-        }
-        html[dir="ltr"] .sizes-table { text-align: left; }
-        .sizes-table th, .sizes-table td {
-            padding: 0.9rem 1rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .sizes-table th {
-            background: var(--sky-blue-light);
-            color: var(--sky-blue-dark);
-            font-style: italic;
-            font-weight: 800;
-        }
-        .sizes-table tr:hover { background: #f8fafc; }
-        .sizes-table td { color: #334155; font-weight: 600; }
+header{
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(135deg,
+        rgba(3,32,52,.97),
+        rgba(4,91,130,.88),
+        rgba(7,24,39,.97));
+    color:white;
+    padding:42px 20px 48px;
+    text-align:center;
+    border-bottom:3px solid var(--gold);
+}
 
-        /* WhatsApp Inquiry Button */
-        .btn-send {
-            display: block;
-            background: linear-gradient(135deg, var(--gold-yellow), #f59e0b);
-            color: var(--dark-navy);
-            border: none;
-            padding: 1.1rem;
-            border-radius: 10px;
-            font-weight: bold;
-            font-style: italic;
-            margin-top: 1.5rem;
-            width: 100%;
-            text-align: center;
-            font-size: 1.15rem;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-send:hover {
-            background: linear-gradient(135deg, var(--soft-pink), var(--sky-blue));
-            color: white;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
-        }
+.header-glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(11,197,245,.13);
+    filter:blur(40px);
+    top:-150px;
+    left:-100px;
+}
 
-        footer {
-            background: var(--dark-navy);
-            color: var(--sky-blue-light);
-            text-align: center;
-            font-style: italic;
-            padding: 1.2rem;
-            margin-top: 3rem;
-            border-top: 3px solid var(--sky-blue);
-        }
-    </style>
+.header-content{
+    position:relative;
+    z-index:2;
+}
+
+/* Company Flip */
+
+.company-flip{
+    height:65px;
+    perspective:800px;
+    margin:auto;
+    max-width:900px;
+}
+
+.flip-inner{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:companyFlip 8s infinite;
+}
+
+.flip-face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:clamp(1.55rem,4vw,2.35rem);
+    font-weight:900;
+    letter-spacing:.2px;
+}
+
+.flip-front{
+    color:white;
+}
+
+.flip-back{
+    color:var(--gold2);
+    transform:rotateX(180deg);
+}
+
+@keyframes companyFlip{
+    0%,38%{
+        transform:rotateX(0deg);
+    }
+    45%,50%{
+        transform:rotateX(180deg);
+    }
+    57%,100%{
+        transform:rotateX(360deg);
+    }
+}
+
+.header-subtitle{
+    color:#d8f6ff;
+    margin-top:8px;
+    font-size:1rem;
+}
+
+.header-line{
+    width:85px;
+    height:3px;
+    background:var(--gold);
+    margin:18px auto 0;
+    border-radius:10px;
+}
+
+/* =========================
+   NAV
+========================= */
+
+nav.main-nav{
+    background:#0b2233;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:8px 10px;
+    box-shadow:0 5px 20px rgba(0,0,0,.12);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+nav ul::-webkit-scrollbar{
+    display:none;
+}
+
+nav button{
+    border:0;
+    background:transparent;
+    color:#d8e6ee;
+    padding:9px 14px;
+    border-radius:8px;
+    white-space:nowrap;
+    cursor:pointer;
+    font-weight:700;
+    transition:.25s;
+}
+
+nav button:hover,
+nav button.active{
+    background:linear-gradient(135deg,var(--blue),#0877a9);
+    color:white;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:min(1150px,94%);
+    margin:auto;
+    padding:28px 0;
+}
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+    animation:fadeIn .35s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:400px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 15px 40px rgba(4,38,58,.15);
+}
+
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+    background:#062236;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+        rgba(3,23,36,.78),
+        rgba(3,23,36,.65));
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    color:white;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.22);
+    padding:7px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+    color:#e9faff;
+    font-size:.9rem;
+    backdrop-filter:blur(5px);
+}
+
+.hero h2{
+    font-size:clamp(1.65rem,4vw,2.7rem);
+    color:white;
+    margin-bottom:15px;
+}
+
+.hero h2 span{
+    color:var(--gold2);
+}
+
+.hero p{
+    color:#e6f4f8;
+    max-width:760px;
+    margin:auto;
+    font-size:1.05rem;
+}
+
+.video-note{
+    margin-top:20px;
+    font-size:.78rem;
+    color:#c9dce5;
+    opacity:.9;
+}
+
+/* =========================
+   INFO CARDS
+========================= */
+
+.info-card{
+    background:white;
+    border:1px solid var(--border);
+    border-right:5px solid var(--blue);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 7px 25px rgba(16,47,66,.05);
+}
+
+html[dir="ltr"] .info-card{
+    border-right:1px solid var(--border);
+    border-left:5px solid var(--blue);
+}
+
+.info-card h2{
+    color:#0877a9;
+    margin-bottom:12px;
+    font-size:1.45rem;
+}
+
+.info-card p{
+    color:#415867;
+}
+
+/* =========================
+   COMPANY FEATURES
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:20px 0;
+}
+
+.feature{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.04);
+}
+
+.feature-icon{
+    font-size:2rem;
+    margin-bottom:8px;
+}
+
+.feature h3{
+    font-size:1.05rem;
+    color:var(--navy);
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:.88rem;
+    margin-top:5px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products-header{
+    background:
+        linear-gradient(135deg,#071827,#0b5275);
+    color:white;
+    padding:28px;
+    border-radius:17px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.products-header h2{
+    font-size:1.7rem;
+    margin-bottom:6px;
+}
+
+.products-header p{
+    color:#cceaf4;
+}
+
+.category-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:17px;
+    box-shadow:0 6px 20px rgba(15,45,65,.05);
+}
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    color:var(--navy);
+}
+
+.category-title .number{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e8f7fd;
+    color:var(--blue);
+    border-radius:10px;
+    font-weight:900;
+}
+
+.product-row{
+    display:grid;
+    grid-template-columns:minmax(160px,1.5fr) minmax(160px,1fr) auto;
+    gap:10px;
+    align-items:center;
+    padding:11px 0;
+    border-top:1px solid #edf2f5;
+}
+
+.product-name{
+    font-weight:800;
+    color:#203846;
+}
+
+.product-name small{
+    display:block;
+    color:#8a9aa4;
+    font-size:.73rem;
+    font-weight:500;
+}
+
+.size-select{
+    width:100%;
+    border:1px solid #cddce4;
+    background:#f9fcfd;
+    padding:10px;
+    border-radius:9px;
+    font-weight:700;
+    color:#233c4b;
+    outline:none;
+}
+
+.inquiry-btn{
+    border:0;
+    background:linear-gradient(135deg,#159c72,#0d7c5b);
+    color:white;
+    padding:10px 14px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:800;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.inquiry-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 13px rgba(13,124,91,.25);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box{
+    text-align:center;
+    background:white;
+    border-radius:18px;
+    border:1px solid var(--border);
+    padding:35px 20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.whatsapp-big{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:#16a36f;
+    color:white;
+    border:0;
+    padding:15px 30px;
+    border-radius:12px;
+    font-size:1.05rem;
+    font-weight:900;
+    cursor:pointer;
+    margin-top:18px;
+}
+
+.phone-note{
+    margin-top:12px;
+    color:#718391;
+    font-size:.88rem;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:var(--navy);
+    color:#bdd5df;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:25px;
+    border-top:3px solid var(--gold);
+}
+
+.footer-company{
+    color:white;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .product-row{
+        grid-template-columns:1fr;
+        gap:8px;
+        padding:16px 0;
+    }
+
+    .inquiry-btn{
+        width:100%;
+    }
+
+    .hero{
+        min-height:420px;
+    }
+
+    .company-flip{
+        height:85px;
+    }
+
+    .flip-face{
+        line-height:1.25;
+    }
+}
+
+@media(max-width:500px){
+
+    .top-bar{
+        padding:7px 12px;
+    }
+
+    .brand-mini{
+        font-size:.7rem;
+    }
+
+    .container{
+        width:94%;
+        padding-top:18px;
+    }
+
+    .info-card,
+    .category-card{
+        padding:17px;
+    }
+
+    .hero{
+        border-radius:15px;
+    }
+
+    .hero h2{
+        font-size:1.6rem;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Top Bar with Home Icon -->
-    <div class="top-bar">
-        <button class="home-icon-btn" onclick="goHome()" title="الصفحة الرئيسية">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span id="homeIconText">الرئيسية</span>
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="top-bar">
+
+    <div class="brand-mini">
+
+        <!-- Oman Flag -->
+        <div class="oman-flag" title="سلطنة عُمان">
+            <div class="red"></div>
+
+            <div class="flag-main">
+                <div class="white"></div>
+                <div class="redline"></div>
+                <div class="green"></div>
+            </div>
+        </div>
+
+        <span id="topCountry">
+            سلطنة عُمان • الخليج العربي
+        </span>
+
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;">
+
+        <button
+            class="home-icon-btn"
+            onclick="goHome()"
+            id="homeIconText">
+            🏠 الرئيسية
         </button>
-        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
-    </div>
 
-    <!-- Header Banner with Animated Text -->
-    <header>
-        <h1 id="title">شركة معبر الخليج العصري للاستيراد والتصدير</h1>
-        <p id="subtitle">Modern Gulf Crossing for Import & Export</p>
-    </header>
-
-    <!-- Navigation Bar -->
-    <nav class="main-nav">
-        <ul>
-            <li><button class="nav-btn active" onclick="openTab(event, 'tab-home')" id="mHome">الرئيسية</button></li>
-            <li><button class="nav-btn" onclick="openTab(event, 'tab-vision')" id="mVision">الرؤية</button></li>
-            <li><button class="nav-btn" onclick="openTab(event, 'tab-value')" id="mValue">القيم</button></li>
-            <li><button class="nav-btn" onclick="openTab(event, 'tab-products')" id="mProducts">المقاسات والأصناف</button></li>
-            <li><button class="nav-btn" onclick="openTab(event, 'tab-news')" id="mNews">التطورات / الأخبار</button></li>
-            <li><button class="nav-btn" onclick="openTab(event, 'tab-contact')" id="mContact">تواصل معنا</button></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-
-        <!-- 1. TAB: HOME -->
-        <div id="tab-home" class="tab-content active">
-            <div class="hero">
-                <h2 id="heroTitle">الريادة في توريد المأكولات البحرية والأسماك بالجملة</h2>
-                <p id="heroDesc">نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.</p>
-            </div>
-
-            <div class="info-card">
-                <h2 id="aboutTitle">🏢 نبذة عن الشركة (About Modern Gulf Crossing)</h2>
-                <p id="aboutDesc">
-                    تعد <strong>شركة معبر الخليج العصري للاستيراد والتصدير</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>
-                    تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.
-                </p>
-            </div>
-
-            <div class="showcase">
-                <!-- Auto-Flipping Card (Oman Flag & Sea Bream Fish) -->
-                <div class="card">
-                    <div class="slider-container">
-                        <img src="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80" class="slider-img active" alt="علم سلطنة عمان" id="slide1">
-                        <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80" class="slider-img" alt="سمك سبريم طازج" id="slide2">
-                    </div>
-                    <div class="card-content">
-                        <h3 id="sc1Title">سلسلة التوريد وسمك السبريم</h3>
-                        <p id="sc1Desc">استيراد وتصدير أفخر أنواع أسماك السبريم الطازجة والمجمدة عبر الموانئ الاستراتيجية.</p>
-                    </div>
-                </div>
-
-                <!-- Video Card: Fish Swimming in the Sea -->
-                <div class="card">
-                    <div class="video-container">
-                        <video autoplay muted loop playsinline>
-                            <source src="https://assets.mixkit.co/videos/preview/mixkit-underwater-shot-of-fish-swimming-41315-large.mp4" type="video/mp4">
-                            متصفحك لا يدعم عرض الفيديو.
-                        </video>
-                    </div>
-                    <div class="card-content">
-                        <h3 id="sc2Title">بيئة بحرية نقية ومصايد مستدامة</h3>
-                        <p id="sc2Desc">حرص تام على استخراج أجود الأسماك من أطهر المياه والمصايد الطبيعية.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. TAB: VISION -->
-        <div id="tab-vision" class="tab-content">
-            <div class="info-card">
-                <h2 id="visTitle">👁️ الرؤية (Our Vision)</h2>
-                <p id="visDesc">
-                    أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.
-                </p>
-            </div>
-        </div>
-
-        <!-- 3. TAB: VALUE -->
-        <div id="tab-value" class="tab-content">
-            <div class="info-card">
-                <h2 id="valTitle">💎 قيمنا الأساسية (Core Values)</h2>
-                <p id="valDesc">
-                    • <strong>الجودة الفائقة:</strong> لا نساوم على طزاجة جودة منتجاتنا بدءاً من المصايد حتى المستهلك.<br>
-                    • <strong>الشفافية والنزاهة:</strong> التزام كامل بالشفافية والصدق في كافة التعاملات التجارية والعقود.<br>
-                    • <strong>كفاءة التوريد:</strong> سرعة فائقة في النقل والالتزام بالمواعيد لحماية سلسلة التبريد.<br>
-                    • <strong>السلامة الغذائية:</strong> تطبيق متطلبات الاشتراطات الصحية والمعايير الدولية للسلامة الغذائية.
-                </p>
-            </div>
-        </div>
-
-        <!-- 4. TAB: SIZES & PRODUCTS TABLE (NO ORDER FORM) -->
-        <div id="tab-products" class="tab-content">
-            <div class="sizes-section">
-                <h2 id="tableMainTitle">مقاسات وأحجام الأسماك والمنتجات البحرية</h2>
-                <p class="subtitle" id="tableSubTitle">دليل المقاسات المعتمدة لتلبية احتياجات الفنادق، المطاعم، وأسواق الجملة</p>
-
-                <div class="sizes-table-wrapper">
-                    <table class="sizes-table">
-                        <thead>
-                            <tr>
-                                <th id="thCategory">الصنف / المنتج</th>
-                                <th id="thSizes">المقاسات والأحجام المتاحة</th>
-                                <th id="thWeight">متوسط الوزن / المواصفات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                            <!-- Populated dynamically by JS for AR/EN -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <button onclick="sendInquiryWhatsApp()" class="btn-send" id="inquiryBtn">للاستفسار عن الأسعار والمقاسات عبر واتساب 📲</button>
-            </div>
-        </div>
-
-        <!-- 5. TAB: NEWS -->
-        <div id="tab-news" class="tab-content">
-            <div class="info-card">
-                <h2 id="newsTitle">📰 التطورات والأخبار (News)</h2>
-                <p id="newsDesc">توسيع خطوط التوريد والشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.</p>
-            </div>
-        </div>
-
-        <!-- 6. TAB: CONTACT US -->
-        <div id="tab-contact" class="tab-content">
-            <div class="info-card" style="text-align: center;">
-                <h2 id="contactTitle" style="justify-content: center;">📞 تواصل معنا (Contacts us)</h2>
-                <p style="margin-bottom: 1.5rem;" id="contactDesc">نحن جاهزون للإجابة على استفساراتكم التجارية وحجز الكميات على مدار الساعة.</p>
-                <button onclick="sendInquiryWhatsApp()" class="btn-send" id="contactBtn" style="max-width: 340px; margin: auto;">استفسار مباشر عبر الواتساب 📲</button>
-            </div>
-        </div>
+        <button
+            class="lang-btn"
+            onclick="toggleLanguage()"
+            id="langBtn">
+            English
+        </button>
 
     </div>
 
-    <footer>
-        <p id="footerText">&copy; جميع الحقوق محفوظة لشركة معبر الخليج العصري</p>
-    </footer>
+</div>
 
-    <script>
-        // Automatic Image Flipper Logic (Oman Flag & Sea Bream Fish)
-        let currentSlide = 0;
-        function autoFlipImages() {
-            const slide1 = document.getElementById('slide1');
-            const slide2 = document.getElementById('slide2');
-            
-            if (currentSlide === 0) {
-                slide1.classList.remove('active');
-                slide2.classList.add('active');
-                currentSlide = 1;
-            } else {
-                slide2.classList.remove('active');
-                slide1.classList.add('active');
-                currentSlide = 0;
-            }
-        }
-        setInterval(autoFlipImages, 3000);
 
-        // Fish Sizes Data for Arabic & English
-        const sizesData = {
-            ar: [
-                { cat: "سمك السبريم (Sea Bream)", sizes: "صغير (300-400غ) | وسط (400-600غ) | كبير (600-900غ) | جامبو (+900غ)", spec: "طازج ومجمد - معبأ بعناية بالحقائب المبردة" },
-                { cat: "أسماك الهامور والكنعد", sizes: "أحجام متوسطة (2-4 كغ) | أحجام كبيرة (5-10 كغ) | شرائح فيليه", spec: "مناسبة للفنادق والمطاعم الكبرى" },
-                { cat: "الروبيان / الجمبري (Shrimp)", sizes: "جامبو (U/10, U/12) | كبير (16/20, 21/25) | وسط (31/40) | صغير", spec: "مقشر، بدون رأس، أو كامل حسب الطلب" },
-                { cat: "الرخويات (حبار / كاليماري وأخطبوط)", sizes: "حبار مفرد (أحجام متنوعة S, M, L, XL) | حلقات كاليماري", spec: "منظف ومجهز بالكامل للتجميد السريع" },
-                { cat: "القشريات الأخرى (لوبستر والكابوريا)", sizes: "لوبستر طبيعي (500غ - 2 كغ) | كابوريا كاملة ومجمدة", spec: "أعلى معايير الحفظ البحري وسلسلة التبريد" }
-            ],
-            en: [
-                { cat: "Sea Bream (سبريم)", sizes: "Small (300-400g) | Medium (400-600g) | Large (600-900g) | Jumbo (+900g)", spec: "Fresh & Frozen - Chilled packaging" },
-                { cat: "Grouper & Kingfish (هامور وكنعد)", sizes: "Medium (2-4 kg) | Large (5-10 kg) | Fillet Portions", spec: "Ideal for hotels and fine dining restaurants" },
-                { cat: "Shrimp / Prawns (روبيان)", sizes: "Jumbo (U/10, U/12) | Large (16/20, 21/25) | Medium (31/40) | Small", spec: "Peeled, Deveined, Headless or Whole" },
-                { cat: "Mollusks (Squid & Octopus)", sizes: "Whole Squid (S, M, L, XL) | Calamari Rings", spec: "Cleaned and prepared for quick-freezing" },
-                { cat: "Other Crustaceans (Lobster & Crab)", sizes: "Live/Fresh Lobster (500g - 2 kg) | Whole Crabs", spec: "Highest maritime preservation standards" }
-            ]
-        };
+<!-- =========================
+     HEADER
+========================= -->
 
-        function renderSizesTable(lang) {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
-            sizesData[lang].forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><strong>${item.cat}</strong></td>
-                    <td>${item.sizes}</td>
-                    <td>${item.spec}</td>
-                `;
-                tbody.appendChild(row);
+<header>
+
+    <div class="header-glow"></div>
+
+    <div class="header-content">
+
+        <div class="company-flip">
+
+            <div class="flip-inner">
+
+                <div class="flip-face flip-front">
+                    شركة معبر الخليج العصري للاستيراد والتصدير
+                </div>
+
+                <div class="flip-face flip-back">
+                    Modern Gulf Crossing
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="header-subtitle" id="headerSubtitle">
+            استيراد وتصدير وتوريد الأسماك والمأكولات البحرية بالجملة
+        </div>
+
+        <div class="header-line"></div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="main-nav">
+
+<ul>
+
+<li>
+<button
+class="nav-btn active"
+id="mHome"
+onclick="openTab(event,'tab-home')">
+الرئيسية
+</button>
+</li>
+
+<li>
+<button
+class="nav-btn"
+id="mVision"
+onclick="openTab(event,'tab-vision')">
+الرؤية
+</button>
+</li>
+
+<li>
+<button
+class="nav-btn"
+id="mValue"
+onclick="openTab(event,'tab-value')">
+القيم
+</button>
+</li>
+
+<li>
+<button
+class="nav-btn"
+id="mProducts"
+onclick="openTab(event,'tab-products')">
+الأصناف والمقاسات
+</button>
+</li>
+
+<li>
+<button
+class="nav-btn"
+id="mNews"
+onclick="openTab(event,'tab-news')">
+التطورات
+</button>
+</li>
+
+<li>
+<button
+class="nav-btn"
+id="mContact"
+onclick="openTab(event,'tab-contact')">
+تواصل معنا
+</button>
+</li>
+
+</ul>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<div id="tab-home" class="tab-content active">
+
+    <section class="hero">
+
+        <!--
+        ==================================================
+        VIDEO PLACEHOLDER
+        ضع ملف الفيديو هنا:
+        fish-underwater.mp4
+        في نفس مجلد index.html
+        ==================================================
+        -->
+
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="">
+
+            <source
+                src="fish-underwater.mp4"
+                type="video/mp4">
+
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🇴🇲 توريد خليجي • 🌊 سلسلة تبريد • 🐟 منتجات بحرية
+            </div>
+
+            <h2 id="heroTitle">
+                شريكك في <span>توريد الأسماك والمأكولات البحرية</span>
+            </h2>
+
+            <p id="heroDesc">
+                توريد الأسماك الطازجة والمجمدة والقشريات والرخويات
+                بمواصفات ومقاسات مختلفة، مع حلول توريد مخصصة
+                للمطاعم والفنادق والموزعين وتجار الجملة.
+            </p>
+
+            <div class="video-note">
+                فيديو الخلفية: fish-underwater.mp4
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="info-card">
+
+        <h2 id="aboutTitle">
+            🏢 نبذة عن الشركة
+        </h2>
+
+        <p id="aboutDesc">
+
+            شركة معبر الخليج العصري للاستيراد والتصدير متخصصة في
+            تجارة وتوريد الأسماك والمأكولات البحرية بالجملة.
+
+            <br><br>
+
+            نعمل على ربط الموردين والأسواق الخليجية من خلال
+            منظومة توريد مرنة تهتم بجودة المنتج، المقاسات،
+            التجهيز، وسرعة الاستجابة لطلبات العملاء.
+
+            <br><br>
+
+            هدفنا هو توفير منتجات بحرية بمواصفات واضحة
+            وخيارات مقاسات متعددة تناسب احتياجات المطاعم
+            والفنادق والموزعين وتجار الجملة.
+
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">🐟</div>
+
+            <h3 id="feature1Title">
+                تنوع الأصناف
+            </h3>
+
+            <p id="feature1Desc">
+                أسماك وقشريات ورخويات ومنتجات بحرية.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">📏</div>
+
+            <h3 id="feature2Title">
+                مقاسات متعددة
+            </h3>
+
+            <p id="feature2Desc">
+                اختيار المقاس أو الـ Grade حسب الصنف.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">❄️</div>
+
+            <h3 id="feature3Title">
+                توريد احترافي
+            </h3>
+
+            <p id="feature3Desc">
+                اهتمام بالجودة وسلسلة التبريد والتوريد.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     VISION
+========================= -->
+
+<div id="tab-vision" class="tab-content">
+
+    <div class="info-card">
+
+        <h2 id="visTitle">
+            👁️ رؤيتنا
+        </h2>
+
+        <p id="visDesc">
+
+            أن نكون شريكًا موثوقًا في قطاع تجارة وتوريد
+            المأكولات البحرية في الخليج العربي، من خلال
+            توفير منتجات متنوعة بمواصفات واضحة ومقاسات
+            تناسب احتياجات العملاء التجاريين.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     VALUES
+========================= -->
+
+<div id="tab-value" class="tab-content">
+
+    <div class="info-card">
+
+        <h2 id="valTitle">
+            💎 قيمنا الأساسية
+        </h2>
+
+        <p id="valDesc">
+
+            • <strong>الجودة:</strong>
+            الاهتمام بجودة المنتج وطزاجته.
+
+            <br>
+
+            • <strong>الشفافية:</strong>
+            معلومات واضحة عن الصنف والمقاس والتوفر.
+
+            <br>
+
+            • <strong>الالتزام:</strong>
+            التعامل المهني مع العملاء والموردين.
+
+            <br>
+
+            • <strong>السلامة الغذائية:</strong>
+            الاهتمام بمتطلبات التخزين والنقل وسلسلة التبريد.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<div id="tab-products" class="tab-content">
+
+    <div class="products-header">
+
+        <h2 id="productsTitle">
+            🐟 الأصناف والمقاسات
+        </h2>
+
+        <p id="productsSubtitle">
+            اختر الصنف والمقاس للاستفسار عن السعر والتوفر
+        </p>
+
+    </div>
+
+
+    <!-- FISH -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">1</div>
+
+            <h3 id="fishTitle">
+                🐟 الأسماك
+            </h3>
+
+        </div>
+
+        <div id="fishProducts"></div>
+
+    </div>
+
+
+    <!-- CRUSTACEANS -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">2</div>
+
+            <h3 id="crustaceanTitle">
+                🦐 القشريات
+            </h3>
+
+        </div>
+
+        <div id="crustaceanProducts"></div>
+
+    </div>
+
+
+    <!-- MOLLUSKS -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">3</div>
+
+            <h3 id="molluskTitle">
+                🦑 الرخويات
+            </h3>
+
+        </div>
+
+        <div id="molluskProducts"></div>
+
+    </div>
+
+
+    <!-- GASTROPODS -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">4</div>
+
+            <h3 id="gastropodTitle">
+                🐚 بطنيات القدم البحرية
+            </h3>
+
+        </div>
+
+        <div id="gastropodProducts"></div>
+
+    </div>
+
+
+    <!-- OTHER MARINE -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">5</div>
+
+            <h3 id="otherTitle">
+                🪸 منتجات بحرية أخرى
+            </h3>
+
+        </div>
+
+        <div id="otherProducts"></div>
+
+    </div>
+
+
+    <!-- FROZEN -->
+
+    <div class="category-card">
+
+        <div class="category-title">
+
+            <div class="number">6</div>
+
+            <h3 id="frozenTitle">
+                🧊 منتجات مجمدة ومجهزة
+            </h3>
+
+        </div>
+
+        <div id="frozenProducts"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     NEWS
+========================= -->
+
+<div id="tab-news" class="tab-content">
+
+    <div class="info-card">
+
+        <h2 id="newsTitle">
+            📰 التطورات
+        </h2>
+
+        <p id="newsDesc">
+
+            نعمل على تطوير شبكة التوريد والشحن والتعاون
+            مع الموردين والأسواق المختلفة لتوفير مجموعة
+            أكبر من المنتجات البحرية والمقاسات المطلوبة
+            للعملاء التجاريين.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<div id="tab-contact" class="tab-content">
+
+    <div class="contact-box">
+
+        <h2 id="contactTitle">
+            📞 استفسار تجاري
+        </h2>
+
+        <p id="contactDesc">
+
+            للاستفسار عن الأسعار، التوفر، المقاسات،
+            الكميات والتوريد، تواصل معنا مباشرة عبر واتساب.
+
+        </p>
+
+        <button
+            class="whatsapp-big"
+            onclick="generalWhatsApp()"
+            id="contactBtn">
+
+            💬 استفسار عبر واتساب
+
+        </button>
+
+        <div class="phone-note">
+            WhatsApp: +966 50 667 7660
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-company" id="footerCompany">
+        شركة معبر الخليج العصري للاستيراد والتصدير
+    </div>
+
+    <div id="footerText">
+        © جميع الحقوق محفوظة
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+const whatsappNumber = "966506677660";
+
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const products = {
+
+fish: [
+
+{
+ar:"هامور",
+en:"Grouper",
+sizesAr:["300–500 جم","500–800 جم","800 جم–1 كجم","1–2 كجم","2–3 كجم","3–5 كجم","5 كجم+"],
+sizesEn:["300–500 g","500–800 g","800 g–1 kg","1–2 kg","2–3 kg","3–5 kg","5 kg+"]
+},
+
+{
+ar:"كنعد",
+en:"Kingfish",
+sizesAr:["1–2 كجم","2–3 كجم","3–5 كجم","5–7 كجم","7 كجم+"],
+sizesEn:["1–2 kg","2–3 kg","3–5 kg","5–7 kg","7 kg+"]
+},
+
+{
+ar:"شعري",
+en:"Emperor / Shaeri",
+sizesAr:["200–300 جم","300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["200–300 g","300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"صافي",
+en:"Rabbitfish / Safi",
+sizesAr:["200–300 جم","300–500 جم","500–800 جم","800 جم+"],
+sizesEn:["200–300 g","300–500 g","500–800 g","800 g+"]
+},
+
+{
+ar:"سبيطي",
+en:"Sea Bream / Subaiti",
+sizesAr:["200–300 جم","300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["200–300 g","300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"شعور",
+en:"Shaour",
+sizesAr:["300–500 جم","500–800 جم","800 جم–1 كجم","1–2 كجم","2 كجم+"],
+sizesEn:["300–500 g","500–800 g","800 g–1 kg","1–2 kg","2 kg+"]
+},
+
+{
+ar:"ناجل",
+en:"Coral Trout / Najil",
+sizesAr:["500 جم–1 كجم","1–2 كجم","2–3 كجم","3–5 كجم","5 كجم+"],
+sizesEn:["500 g–1 kg","1–2 kg","2–3 kg","3–5 kg","5 kg+"]
+},
+
+{
+ar:"حريد",
+en:"Parrotfish / Harid",
+sizesAr:["300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"بوري",
+en:"Mullet",
+sizesAr:["200–300 جم","300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["200–300 g","300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"سردين",
+en:"Sardines",
+sizesAr:["10–15 سم","15–20 سم","20–25 سم","25 سم+"],
+sizesEn:["10–15 cm","15–20 cm","20–25 cm","25 cm+"]
+},
+
+{
+ar:"تونة",
+en:"Tuna",
+sizesAr:["1–3 كجم","3–5 كجم","5–10 كجم","10–20 كجم","20 كجم+"],
+sizesEn:["1–3 kg","3–5 kg","5–10 kg","10–20 kg","20 kg+"]
+},
+
+{
+ar:"سيباس",
+en:"Sea Bass",
+sizesAr:["300–400 جم","400–600 جم","600–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["300–400 g","400–600 g","600–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"دنيس",
+en:"Sea Bream",
+sizesAr:["300–400 جم","400–600 جم","600–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["300–400 g","400–600 g","600–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"فيليه سمك",
+en:"Fish Fillet",
+sizesAr:["100–150 جم","150–200 جم","200–250 جم","250–300 جم","300 جم+"],
+sizesEn:["100–150 g","150–200 g","200–250 g","250–300 g","300 g+"]
+}
+
+],
+
+
+crustaceans:[
+
+{
+ar:"روبيان / جمبري",
+en:"Shrimp / Prawns",
+sizesAr:["20/30","30/40","40/50","50/60","60/70","70/80","80/100"],
+sizesEn:["20/30","30/40","40/50","50/60","60/70","70/80","80/100"]
+},
+
+{
+ar:"روبيان جامبو",
+en:"Jumbo Shrimp",
+sizesAr:["U/5","U/7","8/12","13/15","16/20"],
+sizesEn:["U/5","U/7","8/12","13/15","16/20"]
+},
+
+{
+ar:"كابوريا / سرطان البحر",
+en:"Crab",
+sizesAr:["200–300 جم","300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["200–300 g","300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+},
+
+{
+ar:"لوبستر",
+en:"Lobster",
+sizesAr:["300–500 جم","500–700 جم","700 جم–1 كجم","1–1.5 كجم","1.5 كجم+"],
+sizesEn:["300–500 g","500–700 g","700 g–1 kg","1–1.5 kg","1.5 kg+"]
+},
+
+{
+ar:"استاكوزا",
+en:"Spiny Lobster",
+sizesAr:["300–500 جم","500–800 جم","800 جم–1 كجم","1 كجم+"],
+sizesEn:["300–500 g","500–800 g","800 g–1 kg","1 kg+"]
+}
+
+],
+
+
+mollusks:[
+
+{
+ar:"حبار",
+en:"Squid",
+sizesAr:["100–200 جم","200–300 جم","300–500 جم","500 جم+"],
+sizesEn:["100–200 g","200–300 g","300–500 g","500 g+"]
+},
+
+{
+ar:"كاليماري",
+en:"Calamari",
+sizesAr:["10/20","20/40","40/60","60/80","80/100"],
+sizesEn:["10/20","20/40","40/60","60/80","80/100"]
+},
+
+{
+ar:"أخطبوط",
+en:"Octopus",
+sizesAr:["500 جم–1 كجم","1–2 كجم","2–3 كجم","3–5 كجم","5 كجم+"],
+sizesEn:["500 g–1 kg","1–2 kg","2–3 kg","3–5 kg","5 kg+"]
+},
+
+{
+ar:"محار / أويستر",
+en:"Oysters",
+sizesAr:["صغير","وسط","كبير","جامبو"],
+sizesEn:["Small","Medium","Large","Jumbo"]
+},
+
+{
+ar:"بلح البحر",
+en:"Mussels",
+sizesAr:["صغير","وسط","كبير","جامبو"],
+sizesEn:["Small","Medium","Large","Jumbo"]
+},
+
+{
+ar:"أسقلوب",
+en:"Scallops",
+sizesAr:["10/20","20/30","30/40","40/60"],
+sizesEn:["10/20","20/30","30/40","40/60"]
+}
+
+],
+
+
+gastropods:[
+
+{
+ar:"أذن البحر",
+en:"Abalone",
+sizesAr:["صغير","وسط","كبير","جامبو"],
+sizesEn:["Small","Medium","Large","Jumbo"]
+},
+
+{
+ar:"حلزون البحر",
+en:"Sea Snails",
+sizesAr:["صغير","وسط","كبير"],
+sizesEn:["Small","Medium","Large"]
+}
+
+],
+
+
+other:[
+
+{
+ar:"خيار البحر",
+en:"Sea Cucumber",
+sizesAr:["صغير","وسط","كبير","جامبو"],
+sizesEn:["Small","Medium","Large","Jumbo"]
+},
+
+{
+ar:"قنفذ البحر",
+en:"Sea Urchin",
+sizesAr:["صغير","وسط","كبير"],
+sizesEn:["Small","Medium","Large"]
+},
+
+{
+ar:"كافيار",
+en:"Caviar",
+sizesAr:["30 جم","50 جم","100 جم","250 جم","500 جم"],
+sizesEn:["30 g","50 g","100 g","250 g","500 g"]
+},
+
+{
+ar:"بطارخ السمك",
+en:"Fish Roe",
+sizesAr:["100 جم","250 جم","500 جم","1 كجم"],
+sizesEn:["100 g","250 g","500 g","1 kg"]
+}
+
+],
+
+
+frozen:[
+
+{
+ar:"فيليه سمك مجمد",
+en:"Frozen Fish Fillet",
+sizesAr:["100–150 جم","150–200 جم","200–250 جم","250–300 جم"],
+sizesEn:["100–150 g","150–200 g","200–250 g","250–300 g"]
+},
+
+{
+ar:"روبيان مقشر",
+en:"Peeled Shrimp",
+sizesAr:["31/40","41/50","51/60","61/70","71/90"],
+sizesEn:["31/40","41/50","51/60","61/70","71/90"]
+},
+
+{
+ar:"روبيان بدون رأس",
+en:"Headless Shrimp",
+sizesAr:["16/20","21/25","26/30","31/35","36/40"],
+sizesEn:["16/20","21/25","26/30","31/35","36/40"]
+},
+
+{
+ar:"حلقات كاليماري",
+en:"Calamari Rings",
+sizesAr:["2–4 سم","4–6 سم","6–8 سم","8 سم+"],
+sizesEn:["2–4 cm","4–6 cm","6–8 cm","8 cm+"]
+},
+
+{
+ar:"لحم كابوريا",
+en:"Crab Meat",
+sizesAr:["100 جم","250 جم","500 جم","1 كجم"],
+sizesEn:["100 g","250 g","500 g","1 kg"]
+},
+
+{
+ar:"Seafood Mix",
+en:"Seafood Mix",
+sizesAr:["500 جم","1 كجم","2 كجم","5 كجم"],
+sizesEn:["500 g","1 kg","2 kg","5 kg"]
+}
+
+]
+
+};
+
+
+/* =====================================================
+   CURRENT LANGUAGE
+===================================================== */
+
+let currentLang = "ar";
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+    const groups = [
+        ["fish","fishProducts"],
+        ["crustaceans","crustaceanProducts"],
+        ["mollusks","molluskProducts"],
+        ["gastropods","gastropodProducts"],
+        ["other","otherProducts"],
+        ["frozen","frozenProducts"]
+    ];
+
+    groups.forEach(group => {
+
+        const data = products[group[0]];
+        const container = document.getElementById(group[1]);
+
+        container.innerHTML = "";
+
+        data.forEach((product,index)=>{
+
+            const name =
+                currentLang === "ar"
+                ? product.ar
+                : product.en;
+
+            const sizes =
+                currentLang === "ar"
+                ? product.sizesAr
+                : product.sizesEn;
+
+            const row = document.createElement("div");
+
+            row.className = "product-row";
+
+            const nameBox = document.createElement("div");
+
+            nameBox.className = "product-name";
+
+            nameBox.innerHTML = `
+                ${name}
+                <small>
+                    ${currentLang === "ar"
+                    ? product.en
+                    : product.ar}
+                </small>
+            `;
+
+
+            const select = document.createElement("select");
+
+            select.className = "size-select";
+
+            select.id = `${group[0]}-${index}`;
+
+            const defaultOption =
+                document.createElement("option");
+
+            defaultOption.value = "";
+
+            defaultOption.textContent =
+                currentLang === "ar"
+                ? "-- اختر المقاس --"
+                : "-- Select Size --";
+
+            select.appendChild(defaultOption);
+
+
+            sizes.forEach(size=>{
+
+                const option =
+                    document.createElement("option");
+
+                option.value = size;
+
+                option.textContent = size;
+
+                select.appendChild(option);
+
             });
-        }
 
-        /* Go Home Function */
-        function goHome() {
-            const homeBtn = document.getElementById('mHome');
-            openTab({ currentTarget: homeBtn }, 'tab-home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
-        /* Tab Switching Logic */
-        function openTab(evt, tabName) {
-            const contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
+            const button =
+                document.createElement("button");
 
-            const buttons = document.getElementsByClassName("nav-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
+            button.className = "inquiry-btn";
 
-            document.getElementById(tabName).classList.add("active");
-            if(evt && evt.currentTarget) {
-                evt.currentTarget.classList.add("active");
-            }
-        }
+            button.textContent =
+                currentLang === "ar"
+                ? "استفسار عن السعر"
+                : "Price Inquiry";
 
-        /* WhatsApp General Inquiry */
-        function sendInquiryWhatsApp() {
-            const phone = "966506677660";
-            let message = "";
-            if (currentLang === 'ar') {
-                message = `السلام عليكم ورحمة الله، أرجو إفادتي بالاستفسار عن مقاسات وأسعار الأسماك والمنتجات البحرية المتاحة لدى شركة معبر الخليج العصري.`;
-            } else {
-                message = `Hello, I would like to inquire about the available sizes and pricing of seafood products at Modern Gulf Crossing.`;
-            }
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-        }
 
-        /* Language Toggle */
-        let currentLang = 'ar';
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            document.documentElement.lang = currentLang;
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            button.onclick = function(){
 
-            document.getElementById('langBtn').innerText = currentLang === 'ar' ? 'English' : 'عربي';
-            document.getElementById('homeIconText').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
-            
-            document.getElementById('title').innerText = currentLang === 'ar' ? 'شركة معبر الخليج العصري للاستيراد والتصدير' : 'Modern Gulf Crossing for Import & Export';
-            document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Modern Gulf Crossing for Import & Export' : 'Wholesale Seafood Import & Export';
-            
-            document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'الريادة في توريد المأكولات البحرية والأسماك بالجملة' : 'Leaders in Wholesale Seafood & Fish Supply';
-            document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.' : 'Your trusted partner for fresh & frozen fish, crustaceans, and mollusks, backed by a global supply chain connecting Gulf markets with international fisheries.';
-            
-            document.getElementById('aboutTitle').innerText = currentLang === 'ar' ? '🏢 نبذة عن الشركة (About Modern Gulf Crossing)' : '🏢 About The Company (Modern Gulf Crossing)';
-            document.getElementById('aboutDesc').innerHTML = currentLang === 'ar' ? 
-                'تعد <strong>شركة معبر الخليج العصري للاستيراد والتصدير</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.' :
-                '<strong>Modern Gulf Crossing for Import & Export</strong> is a leading company specialized in wholesale trading and supply of seafood and fish across the Arabian Gulf and Middle East.<br><br>We rely on an advanced cold-chain logistics system ensuring top product freshness from fisheries to distributors, hotels, restaurants, and supermarkets. Supported by strategic maritime connections via the Strait of Hormuz, we guarantee continuous supply with highest international quality standards.';
+                inquireProduct(
+                    name,
+                    select.value,
+                    product.en,
+                    product.ar
+                );
 
-            /* Navigation Translations */
-            document.getElementById('mHome').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
-            document.getElementById('mVision').innerText = currentLang === 'ar' ? 'الرؤية' : 'Vision';
-            document.getElementById('mValue').innerText = currentLang === 'ar' ? 'القيم' : 'Value';
-            document.getElementById('mProducts').innerText = currentLang === 'ar' ? 'المقاسات والأصناف' : 'Sizes & Products';
-            document.getElementById('mNews').innerText = currentLang === 'ar' ? 'التطورات / الأخبار' : 'News';
-            document.getElementById('mContact').innerText = currentLang === 'ar' ? 'تواصل معنا' : 'Contacts us';
+            };
 
-            /* Section Translations */
-            document.getElementById('visTitle').innerText = currentLang === 'ar' ? '👁️ الرؤية (Our Vision)' : '👁️ Our Vision';
-            document.getElementById('visDesc').innerHTML = currentLang === 'ar' ? 
-                'أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.' :
-                'To be the <strong>first choice and most reliable supplier</strong> in seafood trading and import across the Arabian Gulf and Middle East, by adhering to top global standards and providing sustainable supply chain solutions.';
-            
-            document.getElementById('valTitle').innerText = currentLang === 'ar' ? '💎 قيمنا الأساسية (Core Values)' : '💎 Our Core Values';
-            document.getElementById('valDesc').innerHTML = currentLang === 'ar' ? 
-                '• <strong>الجودة الفائقة:</strong> لا نساوم على طزاجة جودة منتجاتنا بدءاً من المصايد حتى المستهلك.<br>• <strong>الشفافية والنزاهة:</strong> التزام كامل بالشفافية والصدق في كافة التعاملات التجارية والعقود.<br>• <strong>كفاءة التوريد:</strong> سرعة فائقة في النقل والالتزام بالمواعيد لحماية سلسلة التبريد.<br>• <strong>السلامة الغذائية:</strong> تطبيق متطلبات الاشتراطات الصحية والمعايير الدولية للسلامة الغذائية.' :
-                '• <strong>Superior Quality:</strong> Uncompromised freshness from fisheries to consumers.<br>• <strong>Integrity & Transparency:</strong> Full honesty and clarity in all commercial deals.<br>• <strong>Supply Efficiency:</strong> Fast transportation upholding strict cold-chain integrity.<br>• <strong>Food Safety:</strong> Strict adherence to global health and food safety standards.';
 
-            document.getElementById('newsTitle').innerText = currentLang === 'ar' ? '📰 التطورات والأخبار (News)' : '📰 News & Updates';
-            document.getElementById('newsDesc').innerText = currentLang === 'ar' ? 'توسيع خطوط التوريد والشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.' : 'Expanding shipping routes via strategic maritime corridors and Strait of Hormuz, ensuring fresh and frozen seafood deliveries reach suppliers with maximum freshness.';
+            row.appendChild(nameBox);
+            row.appendChild(select);
+            row.appendChild(button);
 
-            document.getElementById('contactTitle').innerText = currentLang === 'ar' ? '📞 تواصل معنا (Contacts us)' : '📞 Contact Us';
-            document.getElementById('contactDesc').innerText = currentLang === 'ar' ? 'نحن جاهزون للإجابة على استفساراتكم التجارية وحجز الكميات على مدار الساعة.' : 'We are ready to answer your commercial inquiries and book quantities 24/7.';
-            document.getElementById('contactBtn').innerText = currentLang === 'ar' ? 'استفسار مباشر عبر الواتساب 📲' : 'Direct WhatsApp Inquiry 📲';
+            container.appendChild(row);
 
-            document.getElementById('sc1Title').innerText = currentLang === 'ar' ? 'سلسلة التوريد وسمك السبريم' : 'Supply Chain & Sea Bream';
-            document.getElementById('sc1Desc').innerText = currentLang === 'ar' ? 'استيراد وتصدير أفخر أنواع أسماك السبريم الطازجة والمجمدة عبر الموانئ الاستراتيجية.' : 'Import and export of premium fresh and frozen Sea Bream via strategic ports.';
-            document.getElementById('sc2Title').innerText = currentLang === 'ar' ? 'بيئة بحرية نقية ومصايد مستدامة' : 'Pure Marine Environment & Sustainable Fisheries';
-            document.getElementById('sc2Desc').innerText = currentLang === 'ar' ? 'حرص تام على استخراج أجود الأسماك من أطهر المياه والمصايد الطبيعية.' : 'Total dedication to extracting the finest fish from pristine natural waters.';
-            
-            document.getElementById('tableMainTitle').innerText = currentLang === 'ar' ? 'مقاسات وأحجام الأسماك والمنتجات البحرية' : 'Fish & Seafood Sizes & Specifications';
-            document.getElementById('tableSubTitle').innerText = currentLang === 'ar' ? 'دليل المقاسات المعتمدة لتلبية احتياجات الفنادق، المطاعم، وأسواق الجملة' : 'Approved size guide to meet the needs of hotels, restaurants, and wholesale markets';
-            document.getElementById('thCategory').innerText = currentLang === 'ar' ? 'الصنف / المنتج' : 'Category / Product';
-            document.getElementById('thSizes').innerText = currentLang === 'ar' ? 'المقاسات والأحجام المتاحة' : 'Available Sizes';
-            document.getElementById('thWeight').innerText = currentLang === 'ar' ? 'متوسط الوزن / المواصفات' : 'Avg. Weight / Specs';
-            document.getElementById('inquiryBtn').innerText = currentLang === 'ar' ? 'للاستفسار عن الأسعار والمقاسات عبر واتساب 📲' : 'Inquire About Prices & Sizes via WhatsApp 📲';
+        });
 
-            document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة معبر الخليج العصري' : '© All Rights Reserved - Modern Gulf Crossing';
+    });
 
-            renderSizesTable(currentLang);
-        }
+}
 
-        renderSizesTable('ar');
-    </script>
+
+/* =====================================================
+   PRODUCT INQUIRY
+===================================================== */
+
+function inquireProduct(
+    selectedName,
+    selectedSize,
+    englishName,
+    arabicName
+){
+
+    if(!selectedSize){
+
+        alert(
+            currentLang === "ar"
+            ? "الرجاء اختيار المقاس أولاً."
+            : "Please select a size first."
+        );
+
+        return;
+    }
+
+
+    let message;
+
+    if(currentLang === "ar"){
+
+        message =
+`السلام عليكم،
+
+أرغب بالاستفسار عن:
+
+🐟 الصنف: ${arabicName}
+📏 المقاس: ${selectedSize}
+
+أرجو تزويدي بالسعر والتوفر ومواصفات المنتج.
+
+شكراً لكم.
+شركة معبر الخليج العصري`;
+
+    }else{
+
+        message =
+`Hello,
+
+I would like to inquire about:
+
+🐟 Product: ${englishName}
+📏 Size: ${selectedSize}
+
+Please provide the current price, availability and product specifications.
+
+Thank you.
+Modern Gulf Crossing`;
+
+    }
+
+
+    const url =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url,"_blank");
+
+}
+
+
+/* =====================================================
+   GENERAL WHATSAPP
+===================================================== */
+
+function generalWhatsApp(){
+
+    const message =
+        currentLang === "ar"
+
+        ?
+
+`السلام عليكم،
+
+أرغب بالاستفسار عن منتجات الأسماك والمأكولات البحرية والأسعار والتوفر والمقاسات.
+
+شركة معبر الخليج العصري`
+
+        :
+
+`Hello,
+
+I would like to inquire about seafood products, prices, availability and sizes.
+
+Modern Gulf Crossing`;
+
+
+    window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+function openTab(evt,tabName){
+
+    const contents =
+        document.querySelectorAll(".tab-content");
+
+    contents.forEach(content=>{
+        content.classList.remove("active");
+    });
+
+
+    const buttons =
+        document.querySelectorAll(".nav-btn");
+
+    buttons.forEach(button=>{
+        button.classList.remove("active");
+    });
+
+
+    document.getElementById(tabName)
+        .classList.add("active");
+
+
+    if(evt && evt.currentTarget){
+        evt.currentTarget.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function goHome(){
+
+    const homeButton =
+        document.getElementById("mHome");
+
+    openTab(
+        {currentTarget:homeButton},
+        "tab-home"
+    );
+
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function toggleLanguage(){
+
+    currentLang =
+        currentLang === "ar"
+        ? "en"
+        : "ar";
+
+
+    document.documentElement.lang =
+        currentLang;
+
+    document.documentElement.dir =
+        currentLang === "ar"
+        ? "rtl"
+        : "ltr";
+
+
+    document.getElementById("langBtn")
+        .textContent =
+        currentLang === "ar"
+        ? "English"
+        : "عربي";
+
+
+    document.getElementById("homeIconText")
+        .textContent =
+        currentLang === "ar"
+        ? "🏠 الرئيسية"
+        : "🏠 Home";
+
+
+    document.getElementById("topCountry")
+        .textContent =
+        currentLang === "ar"
+        ? "سلطنة عُمان • الخليج العربي"
+        : "Sultanate of Oman • Arabian Gulf";
+
+
+    document.getElementById("headerSubtitle")
+        .textContent =
+        currentLang === "ar"
+        ? "استيراد وتصدير وتوريد الأسماك والمأكولات البحرية بالجملة"
+        : "Wholesale Seafood Import, Export & Supply";
+
+
+    document.getElementById("heroTitle")
+        .innerHTML =
+        currentLang === "ar"
+        ? "شريكك في <span>توريد الأسماك والمأكولات البحرية</span>"
+        : "Your Partner in <span>Seafood & Fish Supply</span>";
+
+
+    document.getElementById("heroDesc")
+        .textContent =
+        currentLang === "ar"
+
+        ?
+
+"توريد الأسماك الطازجة والمجمدة والقشريات والرخويات بمواصفات ومقاسات مختلفة، مع حلول توريد مخصصة للمطاعم والفنادق والموزعين وتجار الجملة."
+
+        :
+
+"Fresh and frozen fish, crustaceans and mollusks supplied in different specifications and sizes for restaurants, hotels, distributors and wholesale buyers.";
+
+
+    document.getElementById("aboutTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🏢 نبذة عن الشركة"
+        : "🏢 About The Company";
+
+
+    document.getElementById("aboutDesc")
+        .innerHTML =
+
+        currentLang === "ar"
+
+        ?
+
+`شركة معبر الخليج العصري للاستيراد والتصدير متخصصة في تجارة وتوريد الأسماك والمأكولات البحرية بالجملة.
+
+<br><br>
+
+نعمل على ربط الموردين والأسواق الخليجية من خلال منظومة توريد مرنة تهتم بجودة المنتج، المقاسات، التجهيز، وسرعة الاستجابة لطلبات العملاء.
+
+<br><br>
+
+هدفنا هو توفير منتجات بحرية بمواصفات واضحة وخيارات مقاسات متعددة تناسب احتياجات المطاعم والفنادق والموزعين وتجار الجملة.`
+
+        :
+
+`Modern Gulf Crossing for Import & Export specializes in wholesale seafood and fish trading and supply.
+
+<br><br>
+
+We connect suppliers with Gulf markets through a flexible supply system focused on product quality, specifications, sizing and professional service.
+
+<br><br>
+
+Our goal is to provide seafood products with clear specifications and multiple size options for restaurants, hotels, distributors and wholesale buyers.`;
+
+
+    document.getElementById("feature1Title")
+        .textContent =
+        currentLang === "ar"
+        ? "تنوع الأصناف"
+        : "Product Variety";
+
+
+    document.getElementById("feature1Desc")
+        .textContent =
+        currentLang === "ar"
+        ? "أسماك وقشريات ورخويات ومنتجات بحرية."
+        : "Fish, crustaceans, mollusks and seafood products.";
+
+
+    document.getElementById("feature2Title")
+        .textContent =
+        currentLang === "ar"
+        ? "مقاسات متعددة"
+        : "Multiple Sizes";
+
+
+    document.getElementById("feature2Desc")
+        .textContent =
+        currentLang === "ar"
+        ? "اختيار المقاس أو الـ Grade حسب الصنف."
+        : "Different sizes and grades according to product.";
+
+
+    document.getElementById("feature3Title")
+        .textContent =
+        currentLang === "ar"
+        ? "توريد احترافي"
+        : "Professional Supply";
+
+
+    document.getElementById("feature3Desc")
+        .textContent =
+        currentLang === "ar"
+        ? "اهتمام بالجودة وسلسلة التبريد والتوريد."
+        : "Focus on quality, cold chain and supply reliability.";
+
+
+    document.getElementById("mHome")
+        .textContent =
+        currentLang === "ar"
+        ? "الرئيسية"
+        : "Home";
+
+
+    document.getElementById("mVision")
+        .textContent =
+        currentLang === "ar"
+        ? "الرؤية"
+        : "Vision";
+
+
+    document.getElementById("mValue")
+        .textContent =
+        currentLang === "ar"
+        ? "القيم"
+        : "Values";
+
+
+    document.getElementById("mProducts")
+        .textContent =
+        currentLang === "ar"
+        ? "الأصناف والمقاسات"
+        : "Products & Sizes";
+
+
+    document.getElementById("mNews")
+        .textContent =
+        currentLang === "ar"
+        ? "التطورات"
+        : "Updates";
+
+
+    document.getElementById("mContact")
+        .textContent =
+        currentLang === "ar"
+        ? "تواصل معنا"
+        : "Contact";
+
+
+    document.getElementById("visTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "👁️ رؤيتنا"
+        : "👁️ Our Vision";
+
+
+    document.getElementById("visDesc")
+        .textContent =
+
+        currentLang === "ar"
+
+        ?
+
+"أن نكون شريكًا موثوقًا في قطاع تجارة وتوريد المأكولات البحرية في الخليج العربي، من خلال توفير منتجات متنوعة بمواصفات واضحة ومقاسات تناسب احتياجات العملاء التجاريين."
+
+        :
+
+"To become a trusted partner in seafood trading and supply across the Arabian Gulf by providing diverse products with clear specifications and sizes suited to commercial buyers.";
+
+
+    document.getElementById("valTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "💎 قيمنا الأساسية"
+        : "💎 Our Core Values";
+
+
+    document.getElementById("valDesc")
+        .innerHTML =
+
+        currentLang === "ar"
+
+        ?
+
+`• <strong>الجودة:</strong> الاهتمام بجودة المنتج وطزاجته.<br>
+• <strong>الشفافية:</strong> معلومات واضحة عن الصنف والمقاس والتوفر.<br>
+• <strong>الالتزام:</strong> التعامل المهني مع العملاء والموردين.<br>
+• <strong>السلامة الغذائية:</strong> الاهتمام بمتطلبات التخزين والنقل وسلسلة التبريد.`
+
+        :
+
+`• <strong>Quality:</strong> Focus on product quality and freshness.<br>
+• <strong>Transparency:</strong> Clear information about product, size and availability.<br>
+• <strong>Commitment:</strong> Professional customer and supplier relationships.<br>
+• <strong>Food Safety:</strong> Attention to storage, transportation and cold-chain requirements.`;
+
+
+    document.getElementById("productsTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🐟 الأصناف والمقاسات"
+        : "🐟 Products & Sizes";
+
+
+    document.getElementById("productsSubtitle")
+        .textContent =
+        currentLang === "ar"
+        ? "اختر الصنف والمقاس للاستفسار عن السعر والتوفر"
+        : "Select a product and size to inquire about price and availability";
+
+
+    document.getElementById("fishTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🐟 الأسماك"
+        : "🐟 Fish";
+
+
+    document.getElementById("crustaceanTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🦐 القشريات"
+        : "🦐 Crustaceans";
+
+
+    document.getElementById("molluskTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🦑 الرخويات"
+        : "🦑 Mollusks";
+
+
+    document.getElementById("gastropodTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🐚 بطنيات القدم البحرية"
+        : "🐚 Marine Gastropods";
+
+
+    document.getElementById("otherTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🪸 منتجات بحرية أخرى"
+        : "🪸 Other Marine Products";
+
+
+    document.getElementById("frozenTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "🧊 منتجات مجمدة ومجهزة"
+        : "🧊 Frozen & Prepared";
+
+
+    document.getElementById("newsTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "📰 التطورات"
+        : "📰 Updates";
+
+
+    document.getElementById("newsDesc")
+        .textContent =
+
+        currentLang === "ar"
+
+        ?
+
+"نعمل على تطوير شبكة التوريد والشحن والتعاون مع الموردين والأسواق المختلفة لتوفير مجموعة أكبر من المنتجات البحرية والمقاسات المطلوبة للعملاء التجاريين."
+
+        :
+
+"We continue to develop our supply and shipping network and work with different suppliers and markets to provide a wider range of seafood products and sizes for commercial buyers.";
+
+
+    document.getElementById("contactTitle")
+        .textContent =
+        currentLang === "ar"
+        ? "📞 استفسار تجاري"
+        : "📞 Commercial Inquiry";
+
+
+    document.getElementById("contactDesc")
+        .textContent =
+
+        currentLang === "ar"
+
+        ?
+
+"للاستفسار عن الأسعار، التوفر، المقاسات، الكميات والتوريد، تواصل معنا مباشرة عبر واتساب."
+
+        :
+
+"For prices, availability, sizes, quantities and supply inquiries, contact us directly through WhatsApp.";
+
+
+    document.getElementById("contactBtn")
+        .textContent =
+        currentLang === "ar"
+        ? "💬 استفسار عبر واتساب"
+        : "💬 WhatsApp Inquiry";
+
+
+    document.getElementById("footerCompany")
+        .textContent =
+        currentLang === "ar"
+        ? "شركة معبر الخليج العصري للاستيراد والتصدير"
+        : "Modern Gulf Crossing for Import & Export";
+
+
+    document.getElementById("footerText")
+        .textContent =
+        currentLang === "ar"
+        ? "© جميع الحقوق محفوظة"
+        : "© All Rights Reserved";
+
+
+    renderProducts();
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderProducts();
+
+</script>
+
 </body>
 </html>

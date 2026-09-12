@@ -22,8 +22,16 @@
         .lang-btn { background: var(--pink-light); color: #111827; border: none; padding: 0.4rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .lang-btn:hover { background: var(--pink-hover); color: white; }
 
-        /* Main Header */
-        header { background: var(--black-header); color: var(--pink-light); padding: 1.8rem 1rem; text-align: center; border-bottom: 3px solid var(--grey-border); }
+        /* Main Header - Clickable Header to Return Home */
+        header { 
+            background: var(--black-header); 
+            color: var(--pink-light); 
+            padding: 1.8rem 1rem; 
+            text-align: center; 
+            border-bottom: 3px solid var(--grey-border); 
+            cursor: pointer; /* تجعل الهيدر قابل للضغط للعودة للرئيسية */
+            user-select: none;
+        }
         header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; color: var(--pink-light); text-shadow: 0 0 5px rgba(255, 133, 192, 0.2); }
         header p { color: #f472b6; font-weight: 600; font-size: 1rem; }
 
@@ -77,18 +85,18 @@
 
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(17, 24, 39, 0.82), rgba(17, 24, 39, 0.82)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 2.5rem 1.5rem;
+            padding: 3rem 1.5rem;
             border-radius: 12px;
             margin-bottom: 2rem;
             border-bottom: 3px solid var(--pink-light);
         }
-        .hero h2 { font-size: 1.7rem; color: var(--pink-light); margin-bottom: 0.8rem; }
-        .hero p { font-size: 1.05rem; max-width: 800px; margin: auto; line-height: 1.7; color: #e5e7eb; }
+        .hero h2 { font-size: 1.8rem; color: var(--pink-light); margin-bottom: 0.8rem; }
+        .hero p { font-size: 1.1rem; max-width: 850px; margin: auto; line-height: 1.8; color: #e5e7eb; }
 
         /* Section Cards */
         .info-card {
@@ -105,7 +113,7 @@
             border-left: 5px solid var(--pink-light);
         }
         .info-card h2 { color: var(--black-header); margin-bottom: 1rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        .info-card p { font-size: 1.1rem; color: #374151; line-height: 1.8; }
+        .info-card p { font-size: 1.08rem; color: #374151; line-height: 1.8; }
 
         /* Showcase Grid */
         .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
@@ -153,9 +161,26 @@
             font-weight: 600;
         }
 
-        /* Buttons & Footer */
+        /* Buttons */
         .btn-send { display: block; background: var(--pink-light); color: #111827; border: none; padding: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 133, 192, 0.4); transition: 0.3s; }
         .btn-send:hover { background: var(--pink-hover); color: white; }
+
+        .btn-back-home {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: #374151;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-back-home:hover {
+            background: var(--pink-light);
+            color: #111827;
+        }
 
         footer { background: var(--black-header); color: var(--pink-light); text-align: center; padding: 1.2rem; margin-top: 3rem; border-top: 2px solid var(--grey-border); }
     </style>
@@ -163,12 +188,12 @@
 <body>
 
     <div class="top-bar">
-        <span style="font-size: 0.9rem; font-weight: bold; color: var(--pink-light);">MGG Trading</span>
+        <span style="font-size: 0.9rem; font-weight: bold; color: var(--pink-light); cursor: pointer;" onclick="goHome()">MGG Trading</span>
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
     </div>
 
-    <!-- Header: Black BG + Pink Text -->
-    <header>
+    <!-- Header: عند الضغط على الهيدر يتم العودة للرئيسية فوراً -->
+    <header onclick="goHome()" title="اضغط للعودة إلى الصفحة الرئيسية">
         <h1 id="title">شركة المعبر الخليجي للاستيراد والتصدير (MGG)</h1>
         <p id="subtitle">Al-Moaber Gulf Group for Import & Export</p>
     </header>
@@ -187,12 +212,23 @@
 
     <div class="container">
 
-        <!-- 1. TAB: HOME -->
+        <!-- 1. TAB: HOME (الصفحة الرئيسية) -->
         <div id="tab-home" class="tab-content active">
+            <!-- Hero Banner -->
             <div class="hero">
-                <h2 id="heroTitle">استيراد وتصدير الأسماك والمأكولات البحرية للجملة</h2>
-                <p id="heroDesc">نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.</p>
+                <h2 id="heroTitle">الريادة في توريد المأكولات البحرية والأسماك بالجملة</h2>
+                <p id="heroDesc">نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.</p>
             </div>
+
+            <!-- About Company Card -->
+            <div class="info-card">
+                <h2 id="aboutTitle">🏢 نبذة عن الشركة (About MGG)</h2>
+                <p id="aboutDesc">
+                    تعد <strong>شركة المعبر الخليجي للاستيراد والتصدير (MGG)</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>
+                    تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.
+                </p>
+            </div>
+
             <div class="showcase">
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80" alt="أسماك طازجة">
@@ -214,21 +250,25 @@
         <!-- 2. TAB: VISION -->
         <div id="tab-vision" class="tab-content">
             <div class="info-card">
-                <h2 id="visTitle">👁️ الرؤية (Vision)</h2>
-                <p id="visDesc">أن نكون المورد المفضل والرائد في تجارة واستيراد المأكولات البحرية والأسماك الفاخرة على مستوى دول الخليج والشرق الأوسط، مع التزامنا بأعلى معايير الجودة والتوريد المستدام.</p>
+                <h2 id="visTitle">👁️ الرؤية (Our Vision)</h2>
+                <p id="visDesc">
+                    أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.
+                </p>
+                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
         <!-- 3. TAB: VALUE -->
         <div id="tab-value" class="tab-content">
             <div class="info-card">
-                <h2 id="valTitle">💎 القيم (Value)</h2>
+                <h2 id="valTitle">💎 قيمنا الأساسية (Core Values)</h2>
                 <p id="valDesc">
-                    • <strong>الجودة العالية:</strong> اختيار دقيق لأجود مصايد الأسماك.<br>
-                    • <strong>الأمانة والشفافية:</strong> التعامل الواضح والشفاف مع شركائنا في التجارة.<br>
-                    • <strong>السرعة والتوريد:</strong> حماية سلسلة التبريد وسرعة النقل البحري والبري.<br>
-                    • <strong>السلامة الغذائية:</strong> الامتثال لكافة معايير السلامة والجودة العالمية.
+                    • <strong>الجودة الفائقة:</strong> لا نساوم على طزاجة جودة منتجاتنا بدءاً من المصايد حتى المستهلك.<br>
+                    • <strong>الشفافية والنزاهة:</strong> التزام كامل بالشفافية والصدق في كافة التعاملات التجارية والعقود.<br>
+                    • <strong>كفاءة التوريد:</strong> سرعة فائقة في النقل والالتزام بالمواعيد لحماية سلسلة التبريد.<br>
+                    • <strong>السلامة الغذائية:</strong> تطبيق متطلبات الاشتراطات الصحية والمعايير الدولية للسلامة الغذائية.
                 </p>
+                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -295,7 +335,8 @@
         <div id="tab-news" class="tab-content">
             <div class="info-card">
                 <h2 id="newsTitle">📰 التطورات والأخبار (News)</h2>
-                <p id="newsDesc">توسيع خطوط التوريد الشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.</p>
+                <p id="newsDesc">توسيع خطوط التوريد والشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.</p>
+                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -305,6 +346,8 @@
                 <h2 id="contactTitle" style="justify-content: center;">📞 تواصل معنا (Contacts us)</h2>
                 <p style="margin-bottom: 1rem;" id="contactDesc">نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.</p>
                 <button onclick="sendToWhatsApp()" class="btn-send" id="contactBtn" style="max-width: 320px; margin: auto;">تواصل مباشر عبر الواتساب 📲</button>
+                <br>
+                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -378,6 +421,13 @@
             populateSelect('selectFrozen', data.frozenPlaceholder, data.frozen);
         }
 
+        /* Go Home Function */
+        function goHome() {
+            const homeBtn = document.getElementById('mHome');
+            openTab({ currentTarget: homeBtn }, 'tab-home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         /* Tab Switching Logic */
         function openTab(evt, tabName) {
             const contents = document.getElementsByClassName("tab-content");
@@ -391,7 +441,9 @@
             }
 
             document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+            if(evt && evt.currentTarget) {
+                evt.currentTarget.classList.add("active");
+            }
         }
 
         /* WhatsApp Message Sender */
@@ -457,9 +509,15 @@
             document.getElementById('langBtn').innerText = currentLang === 'ar' ? 'English' : 'عربي';
             document.getElementById('title').innerText = currentLang === 'ar' ? 'شركة المعبر الخليجي للاستيراد والتصدير (MGG)' : 'Al-Moaber Gulf Group for Import & Export (MGG)';
             document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Al-Moaber Gulf Group for Import & Export' : 'Wholesale Seafood Import & Export';
-            document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'استيراد وتصدير الأسماك والمأكولات البحرية للجملة' : 'Wholesale Seafood Import & Export Services';
-            document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.' : 'Connecting Gulf and global markets with fresh & frozen seafood via Strait of Hormuz and strategic shipping lanes.';
             
+            document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'الريادة في توريد المأكولات البحرية والأسماك بالجملة' : 'Leaders in Wholesale Seafood & Fish Supply';
+            document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.' : 'Your trusted partner for fresh & frozen fish, crustaceans, and mollusks, backed by a global supply chain connecting Gulf markets with international fisheries.';
+            
+            document.getElementById('aboutTitle').innerText = currentLang === 'ar' ? '🏢 نبذة عن الشركة (About MGG)' : '🏢 About The Company (MGG)';
+            document.getElementById('aboutDesc').innerHTML = currentLang === 'ar' ? 
+                'تعد <strong>شركة المعبر الخليجي للاستيراد والتصدير (MGG)</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.' :
+                '<strong>Al-Moaber Gulf Group for Import & Export (MGG)</strong> is a leading company specialized in wholesale trading and supply of seafood and fish across the Arabian Gulf and Middle East.<br><br>We rely on an advanced cold-chain logistics system ensuring top product freshness from fisheries to distributors, hotels, restaurants, and supermarkets. Supported by strategic maritime connections via the Strait of Hormuz, we guarantee continuous supply with highest international quality standards.';
+
             /* Navigation Translations */
             document.getElementById('mHome').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
             document.getElementById('mVision').innerText = currentLang === 'ar' ? 'الرؤية' : 'Vision';
@@ -469,16 +527,18 @@
             document.getElementById('mContact').innerText = currentLang === 'ar' ? 'تواصل معنا' : 'Contacts us';
 
             /* Vision / Value / News / Contact */
-            document.getElementById('visTitle').innerText = currentLang === 'ar' ? '👁️ الرؤية (Vision)' : '👁️ Vision';
-            document.getElementById('visDesc').innerText = currentLang === 'ar' ? 'أن نكون المورد المفضل والرائد في تجارة واستيراد المأكولات البحرية والأسماك الفاخرة على مستوى دول الخليج والشرق الأوسط، مع التزامنا بأعلى معايير الجودة والتوريد المستدام.' : 'To be the preferred and leading supplier in importing premium seafood and fish across the Gulf region and Middle East, adhering to highest quality standards.';
+            document.getElementById('visTitle').innerText = currentLang === 'ar' ? '👁️ الرؤية (Our Vision)' : '👁️ Our Vision';
+            document.getElementById('visDesc').innerHTML = currentLang === 'ar' ? 
+                'أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.' :
+                'To be the <strong>first choice and most reliable supplier</strong> in seafood trading and import across the Arabian Gulf and Middle East, by adhering to top global standards and providing sustainable supply chain solutions.';
             
-            document.getElementById('valTitle').innerText = currentLang === 'ar' ? '💎 القيم (Value)' : '💎 Core Values';
+            document.getElementById('valTitle').innerText = currentLang === 'ar' ? '💎 قيمنا الأساسية (Core Values)' : '💎 Our Core Values';
             document.getElementById('valDesc').innerHTML = currentLang === 'ar' ? 
-                '• <strong>الجودة العالية:</strong> اختيار دقيق لأجود مصايد الأسماك.<br>• <strong>الأمانة والشفافية:</strong> التعامل الواضح والشفاف مع شركائنا في التجارة.<br>• <strong>السرعة والتوريد:</strong> حماية سلسلة التبريد وسرعة النقل البحري والبري.<br>• <strong>السلامة الغذائية:</strong> الامتثال لكافة معايير السلامة والجودة العالمية.' :
-                '• <strong>High Quality:</strong> Careful selection from top seafood fisheries.<br>• <strong>Integrity & Transparency:</strong> Clear, honest commercial partnerships.<br>• <strong>Fast Supply Chain:</strong> Cold-chain preservation and fast transport.<br>• <strong>Food Safety:</strong> Full compliance with global seafood safety standards.';
+                '• <strong>الجودة الفائقة:</strong> لا نساوم على طزاجة جودة منتجاتنا بدءاً من المصايد حتى المستهلك.<br>• <strong>الشفافية والنزاهة:</strong> التزام كامل بالشفافية والصدق في كافة التعاملات التجارية والعقود.<br>• <strong>كفاءة التوريد:</strong> سرعة فائقة في النقل والالتزام بالمواعيد لحماية سلسلة التبريد.<br>• <strong>السلامة الغذائية:</strong> تطبيق متطلبات الاشتراطات الصحية والمعايير الدولية للسلامة الغذائية.' :
+                '• <strong>Superior Quality:</strong> Uncompromised freshness from fisheries to consumers.<br>• <strong>Integrity & Transparency:</strong> Full honesty and clarity in all commercial deals.<br>• <strong>Supply Efficiency:</strong> Fast transportation upholding strict cold-chain integrity.<br>• <strong>Food Safety:</strong> Strict adherence to global health and food safety standards.';
 
             document.getElementById('newsTitle').innerText = currentLang === 'ar' ? '📰 التطورات والأخبار (News)' : '📰 News & Updates';
-            document.getElementById('newsDesc').innerText = currentLang === 'ar' ? 'توسيع خطوط التوريد الشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.' : 'Expanding shipping routes via strategic maritime corridors and Strait of Hormuz, ensuring fresh and frozen seafood deliveries reach suppliers with maximum freshness.';
+            document.getElementById('newsDesc').innerText = currentLang === 'ar' ? 'توسيع خطوط التوريد والشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.' : 'Expanding shipping routes via strategic maritime corridors and Strait of Hormuz, ensuring fresh and frozen seafood deliveries reach suppliers with maximum freshness.';
 
             document.getElementById('contactTitle').innerText = currentLang === 'ar' ? '📞 تواصل معنا (Contacts us)' : '📞 Contact Us';
             document.getElementById('contactDesc').innerText = currentLang === 'ar' ? 'نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.' : 'We are ready to fulfill wholesale inquiries and commercial orders 24/7.';

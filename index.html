@@ -17,39 +17,105 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-grey-light); color: var(--grey-dark); line-height: 1.6; }
         
-        .top-bar { background: var(--black-header); color: white; padding: 0.6rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--grey-border); }
+        /* Top Header Bar */
+        .top-bar { background: var(--black-header); color: white; padding: 0.6rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--grey-border); }
         .lang-btn { background: var(--pink-light); color: #111827; border: none; padding: 0.4rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .lang-btn:hover { background: var(--pink-hover); color: white; }
 
-        /* Header with Black BG and Light Pink Text */
-        header { background: var(--black-header); color: var(--pink-light); padding: 2rem 1rem; text-align: center; border-bottom: 3px solid var(--grey-border); }
-        header h1 { font-size: 1.9rem; margin-bottom: 0.5rem; color: var(--pink-light); text-shadow: 0 0 5px rgba(255, 133, 192, 0.2); }
-        header p { color: #f472b6; font-weight: 600; font-size: 1.1rem; }
-        
-        /* Hero Section */
+        /* Main Header */
+        header { background: var(--black-header); color: var(--pink-light); padding: 1.8rem 1rem; text-align: center; border-bottom: 3px solid var(--grey-border); }
+        header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; color: var(--pink-light); text-shadow: 0 0 5px rgba(255, 133, 192, 0.2); }
+        header p { color: #f472b6; font-weight: 600; font-size: 1rem; }
+
+        /* Navigation Bar based on Image Header */
+        nav.main-nav {
+            background: #1f2937;
+            border-bottom: 3px solid var(--pink-light);
+            padding: 0.6rem 1rem;
+            overflow-x: auto;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        nav.main-nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 0.8rem;
+            white-space: nowrap;
+        }
+        nav.main-nav ul li button {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--pink-light);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        nav.main-nav ul li button:hover, nav.main-nav ul li button.active {
+            background: var(--pink-light);
+            color: #111827;
+            border-color: var(--pink-hover);
+            box-shadow: 0 2px 8px rgba(255, 133, 192, 0.3);
+        }
+
+        .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+
+        /* Tab Content Control */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(17, 24, 39, 0.82), rgba(17, 24, 39, 0.82)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
             border-bottom: 3px solid var(--pink-light);
         }
-        .hero h2 { font-size: 1.8rem; color: var(--pink-light); margin-bottom: 0.8rem; }
+        .hero h2 { font-size: 1.7rem; color: var(--pink-light); margin-bottom: 0.8rem; }
         .hero p { font-size: 1.05rem; max-width: 800px; margin: auto; line-height: 1.7; color: #e5e7eb; }
 
-        .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+        /* Section Cards */
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-right: 5px solid var(--pink-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        html[dir="ltr"] .info-card {
+            border-right: 1px solid #e5e7eb;
+            border-left: 5px solid var(--pink-light);
+        }
+        .info-card h2 { color: var(--black-header); margin-bottom: 1rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .info-card p { font-size: 1.1rem; color: #374151; line-height: 1.8; }
 
-        /* Images Showcase */
-        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        /* Showcase Grid */
+        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--grey-border); }
-        .card img { width: 100%; height: 230px; object-fit: cover; }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
         .card-content { padding: 1.2rem; text-align: center; }
         .card h3 { color: var(--black-header); margin-bottom: 0.4rem; font-size: 1.2rem; }
         .card p { color: #6b7280; font-size: 0.95rem; }
 
-        /* Order Section & Category Boxes */
+        /* Order Form & Product Categories */
         .order-section { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
         .order-section h2 { text-align: center; color: var(--black-header); margin-bottom: 0.5rem; font-size: 1.6rem; }
         .order-section p.subtitle { text-align: center; color: #db2777; font-weight: bold; margin-bottom: 2rem; }
@@ -58,7 +124,6 @@
         .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--black-header); }
         .qty-group select { width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #d1d5db; font-size: 1rem; outline: none; background: white; font-weight: bold; }
 
-        /* Custom Box per Category */
         .category-card {
             background: #ffffff;
             border: 1px solid #d1d5db;
@@ -88,8 +153,8 @@
             font-weight: 600;
         }
 
-        /* WhatsApp Button */
-        .btn-send { display: block; background: var(--pink-light); color: #111827; border: none; padding: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.25rem; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 133, 192, 0.4); transition: 0.3s; }
+        /* Buttons & Footer */
+        .btn-send { display: block; background: var(--pink-light); color: #111827; border: none; padding: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 133, 192, 0.4); transition: 0.3s; }
         .btn-send:hover { background: var(--pink-hover); color: white; }
 
         footer { background: var(--black-header); color: var(--pink-light); text-align: center; padding: 1.2rem; margin-top: 3rem; border-top: 2px solid var(--grey-border); }
@@ -108,154 +173,139 @@
         <p id="subtitle">Al-Moaber Gulf Group for Import & Export</p>
     </header>
 
-    <div class="hero">
-        <h2 id="heroTitle">استيراد وتصدير الأسماك والمأكولات البحرية للجملة</h2>
-        <p id="heroDesc">نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.</p>
-    </div>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <ul>
+            <li><button class="nav-btn active" onclick="openTab(event, 'tab-home')" id="mHome">الرئيسية</button></li>
+            <li><button class="nav-btn" onclick="openTab(event, 'tab-vision')" id="mVision">الرؤية</button></li>
+            <li><button class="nav-btn" onclick="openTab(event, 'tab-value')" id="mValue">القيم</button></li>
+            <li><button class="nav-btn" onclick="openTab(event, 'tab-products')" id="mProducts">المنتجات</button></li>
+            <li><button class="nav-btn" onclick="openTab(event, 'tab-news')" id="mNews">التطورات / الأخبار</button></li>
+            <li><button class="nav-btn" onclick="openTab(event, 'tab-contact')" id="mContact">تواصل معنا</button></li>
+        </ul>
+    </nav>
 
     <div class="container">
-        
-        <!-- Showcase Cards with Beautiful Fish and Shrimp Images -->
-        <div class="showcase">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80" alt="أسماك طازجة">
-                <div class="card-content">
-                    <h3 id="sc1Title">أسماك طازجة ومجمدة</h3>
-                    <p id="sc1Desc">تشكيلة واسعة من أجود أنواع الأسماك البحرية المحفوظة بالثلج للجملة.</p>
-                </div>
+
+        <!-- 1. TAB: HOME -->
+        <div id="tab-home" class="tab-content active">
+            <div class="hero">
+                <h2 id="heroTitle">استيراد وتصدير الأسماك والمأكولات البحرية للجملة</h2>
+                <p id="heroDesc">نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.</p>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80" alt="روبيان طازج">
-                <div class="card-content">
-                    <h3 id="sc2Title">روبيان وقشريات فاخرة</h3>
-                    <p id="sc2Desc">فرز احترافي لجميع أحجام الروبيان والكابوريا واللوبستر لتلبية الطلبات الكبيرة.</p>
+            <div class="showcase">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=800&q=80" alt="أسماك طازجة">
+                    <div class="card-content">
+                        <h3 id="sc1Title">أسماك طازجة ومجمدة</h3>
+                        <p id="sc1Desc">تشكيلة واسعة من أجود أنواع الأسماك البحرية المحفوظة بالثلج للجملة.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80" alt="روبيان طازج">
+                    <div class="card-content">
+                        <h3 id="sc2Title">روبيان وقشريات فاخرة</h3>
+                        <p id="sc2Desc">فرز احترافي لجميع أحجام الروبيان والكابوريا واللوبستر لتلبية الطلبات الكبيرة.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Order Form Section -->
-        <div class="order-section">
-            <h2 id="formTitle">اختر أصناف المأكولات البحرية والكمية المطلوبة</h2>
-            <p class="subtitle" id="formSub">حدد الصنف المطلوب من القوائم المنسدلة ليصلك عرض السعر المباشر</p>
-
-            <!-- Quantity Selection -->
-            <div class="qty-group">
-                <label for="quantitySelect" id="qtyLabel">الكمية المطلوبة (من 50 كيلو إلى 100 طن):</label>
-                <select id="quantitySelect">
-                    <option value="50 - 100 كيلو">50 - 100 كيلو</option>
-                    <option value="100 - 500 كيلو">100 - 500 كيلو</option>
-                    <option value="1 طن - 5 طن">1 طن - 5 طن</option>
-                    <option value="5 طن - 20 طن">5 طن - 20 طن</option>
-                    <option value="20 طن - 50 طن">20 طن - 50 طن</option>
-                    <option value="50 طن - 100 طن">50 طن - 100 طن</option>
-                </select>
+        <!-- 2. TAB: VISION -->
+        <div id="tab-vision" class="tab-content">
+            <div class="info-card">
+                <h2 id="visTitle">👁️ الرؤية (Vision)</h2>
+                <p id="visDesc">أن نكون المورد المفضل والرائد في تجارة واستيراد المأكولات البحرية والأسماك الفاخرة على مستوى دول الخليج والشرق الأوسط، مع التزامنا بأعلى معايير الجودة والتوريد المستدام.</p>
             </div>
+        </div>
 
-            <!-- Box 1: Fish -->
-            <div class="category-card">
-                <h3>🐟 1. الأسماك (Fish)</h3>
-                <select id="selectFish">
-                    <option value="">-- اختر نوع السمك المطلوبة (اختياري) --</option>
-                    <option value="هامور">هامور</option>
-                    <option value="كنعد">كنعد</option>
-                    <option value="شعري">شعري</option>
-                    <option value="صافي">صافي</option>
-                    <option value="سبيطي">سبيطي</option>
-                    <option value="شعور">شعور</option>
-                    <option value="بياض">بياض</option>
-                    <option value="ناجل">ناجل</option>
-                    <option value="حريد">حريد</option>
-                    <option value="بوري">بوري</option>
-                    <option value="سردين">سردين</option>
-                    <option value="تونة">تونة</option>
-                    <option value="سيباس">سيباس</option>
-                    <option value="دنيس">دنيس</option>
-                    <option value="فيليه سمك">فيليه سمك</option>
-                    <option value="سمك مجمد">سمك مجمد</option>
-                </select>
+        <!-- 3. TAB: VALUE -->
+        <div id="tab-value" class="tab-content">
+            <div class="info-card">
+                <h2 id="valTitle">💎 القيم (Value)</h2>
+                <p id="valDesc">
+                    • <strong>الجودة العالية:</strong> اختيار دقيق لأجود مصايد الأسماك.<br>
+                    • <strong>الأمانة والشفافية:</strong> التعامل الواضح والشفاف مع شركائنا في التجارة.<br>
+                    • <strong>السرعة والتوريد:</strong> حماية سلسلة التبريد وسرعة النقل البحري والبري.<br>
+                    • <strong>السلامة الغذائية:</strong> الامتثال لكافة معايير السلامة والجودة العالمية.
+                </p>
             </div>
+        </div>
 
-            <!-- Box 2: Crustaceans -->
-            <div class="category-card">
-                <h3>🦐 2. القشريات (Crustaceans)</h3>
-                <select id="selectCrustacean">
-                    <option value="">-- اختر نوع القشريات المطلوبة (اختياري) --</option>
-                    <option value="روبيان / جمبري">روبيان / جمبري</option>
-                    <option value="روبيان جامبو">روبيان جامبو</option>
-                    <option value="روبيان كبير">روبيان كبير</option>
-                    <option value="روبيان وسط">روبيان وسط</option>
-                    <option value="روبيان صغير">روبيان صغير</option>
-                    <option value="كابوريا / سرطان البحر">كابوريا / سرطان البحر</option>
-                    <option value="لوبستر">لوبستر</option>
-                    <option value="استاكوزا">استاكوزا</option>
-                    <option value="جراد البحر">جراد البحر</option>
-                    <option value="أم الربيان">أم الربيان</option>
-                    <option value="جراد بحر النرويج">جراد بحر النرويج</option>
-                </select>
+        <!-- 4. TAB: PRODUCTS & ORDERS -->
+        <div id="tab-products" class="tab-content">
+            <div class="order-section">
+                <h2 id="formTitle">قائمة المنتجات واختيار الطلبات بالجملة</h2>
+                <p class="subtitle" id="formSub">حدد الصنف المطلوب والكمية ليصلك عرض السعر المباشر</p>
+
+                <!-- Quantity Selection -->
+                <div class="qty-group">
+                    <label for="quantitySelect" id="qtyLabel">الكمية المطلوبة (من 50 كيلو إلى 100 طن):</label>
+                    <select id="quantitySelect">
+                        <option value="50 - 100 kg">50 - 100 كيلو / 50 - 100 kg</option>
+                        <option value="100 - 500 kg">100 - 500 كيلو / 100 - 500 kg</option>
+                        <option value="1 - 5 Tons">1 طن - 5 طن / 1 - 5 Tons</option>
+                        <option value="5 - 20 Tons">5 طن - 20 طن / 5 - 20 Tons</option>
+                        <option value="20 - 50 Tons">20 طن - 50 طن / 20 - 50 Tons</option>
+                        <option value="50 - 100 Tons">50 طن - 100 طن / 50 - 100 Tons</option>
+                    </select>
+                </div>
+
+                <!-- Box 1: Fish -->
+                <div class="category-card">
+                    <h3 id="cat1Header">🐟 1. الأسماك (Fish)</h3>
+                    <select id="selectFish"></select>
+                </div>
+
+                <!-- Box 2: Crustaceans -->
+                <div class="category-card">
+                    <h3 id="cat2Header">🦐 2. القشريات (Crustaceans)</h3>
+                    <select id="selectCrustacean"></select>
+                </div>
+
+                <!-- Box 3: Mollusks -->
+                <div class="category-card">
+                    <h3 id="cat3Header">🦑 3. الرخويات (Mollusks)</h3>
+                    <select id="selectMollusk"></select>
+                </div>
+
+                <!-- Box 4: Gastropods -->
+                <div class="category-card">
+                    <h3 id="cat4Header">🐚 4. بطنيات القدم البحرية (Gastropods)</h3>
+                    <select id="selectGastropod"></select>
+                </div>
+
+                <!-- Box 5: Others -->
+                <div class="category-card">
+                    <h3 id="cat5Header">🪸 5. فقاريات ولافقاريات بحرية أخرى (Other Marine Life)</h3>
+                    <select id="selectOthers"></select>
+                </div>
+
+                <!-- Box 6: Frozen & Prepared -->
+                <div class="category-card">
+                    <h3 id="cat6Header">🧊 6. منتجات بحرية مجمدة ومجهزة (Frozen & Prepared)</h3>
+                    <select id="selectFrozen"></select>
+                </div>
+
+                <button onclick="sendToWhatsApp()" class="btn-send" id="sendBtn">إرسال الطلب عبر واتساب 📲</button>
             </div>
+        </div>
 
-            <!-- Box 3: Mollusks -->
-            <div class="category-card">
-                <h3>🦑 3. الرخويات (Mollusks)</h3>
-                <select id="selectMollusk">
-                    <option value="">-- اختر نوع الرخويات المطلوبة (اختياري) --</option>
-                    <option value="حبار">حبار</option>
-                    <option value="كاليماري">كاليماري</option>
-                    <option value="أخطبوط">أخطبوط</option>
-                    <option value="محار">محار</option>
-                    <option value="أويستر">أويستر</option>
-                    <option value="بلح البحر">بلح البحر</option>
-                    <option value="جندوفلي">جندوفلي</option>
-                    <option value="بطلينوس / Clams">بطلينوس / Clams</option>
-                    <option value="أسقلوب / Scallops">أسقلوب / Scallops</option>
-                </select>
+        <!-- 5. TAB: NEWS -->
+        <div id="tab-news" class="tab-content">
+            <div class="info-card">
+                <h2 id="newsTitle">📰 التطورات والأخبار (News)</h2>
+                <p id="newsDesc">توسيع خطوط التوريد الشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.</p>
             </div>
+        </div>
 
-            <!-- Box 4: Gastropods -->
-            <div class="category-card">
-                <h3>🐚 4. بطنيات القدم البحرية</h3>
-                <select id="selectGastropod">
-                    <option value="">-- اختر الصنف المطلوب (اختياري) --</option>
-                    <option value="حلزون البحر">حلزون البحر</option>
-                    <option value="أذن البحر / Abalone">أذن البحر / Abalone</option>
-                    <option value="قواقع بحرية">قواقع بحرية</option>
-                </select>
+        <!-- 6. TAB: CONTACT US -->
+        <div id="tab-contact" class="tab-content">
+            <div class="info-card" style="text-align: center;">
+                <h2 id="contactTitle" style="justify-content: center;">📞 تواصل معنا (Contacts us)</h2>
+                <p style="margin-bottom: 1rem;" id="contactDesc">نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.</p>
+                <button onclick="sendToWhatsApp()" class="btn-send" id="contactBtn" style="max-width: 320px; margin: auto;">تواصل مباشر عبر الواتساب 📲</button>
             </div>
-
-            <!-- Box 5: Others -->
-            <div class="category-card">
-                <h3>🪸 5. فقاريات ولافقاريات بحرية أخرى</h3>
-                <select id="selectOthers">
-                    <option value="">-- اختر الصنف المطلوب (اختياري) --</option>
-                    <option value="خيار البحر">خيار البحر</option>
-                    <option value="قنفذ البحر">قنفذ البحر</option>
-                    <option value="قناديل البحر">قناديل البحر</option>
-                    <option value="كافيار / بيض السمك">كافيار / بيض السمك</option>
-                    <option value="بطارخ السمك">بطارخ السمك</option>
-                </select>
-            </div>
-
-            <!-- Box 6: Frozen & Prepared -->
-            <div class="category-card">
-                <h3>🧊 6. منتجات بحرية مجمدة ومجهزة</h3>
-                <select id="selectFrozen">
-                    <option value="">-- اختر المنتج المجمد/المجهز (اختياري) --</option>
-                    <option value="روبيان مقشر">روبيان مقشر</option>
-                    <option value="روبيان بدون رأس">روبيان بدون رأس</option>
-                    <option value="روبيان كامل">روبيان كامل</option>
-                    <option value="فيليه سمك مجمد">فيليه سمك مجمد</option>
-                    <option value="حلقات كاليماري">حلقات كاليماري</option>
-                    <option value="أخطبوط منظف">أخطبوط منظف</option>
-                    <option value="بلح بحر منزوع الصدفة">بلح بحر منزوع الصدفة</option>
-                    <option value="لحم كابوريا">لحم كابوريا</option>
-                    <option value="خلطات Seafood Mix">خلطات Seafood Mix</option>
-                    <option value="سمك كامل مجمد">سمك كامل مجمد</option>
-                    <option value="أسماك مجمدة مستوردة">أسماك مجمدة مستوردة</option>
-                    <option value="منتجات متبلة وجاهزة للقلي">منتجات متبلة وجاهزة للقلي</option>
-                </select>
-            </div>
-
-            <button onclick="sendToWhatsApp()" class="btn-send" id="sendBtn">إرسال الطلب عبر واتساب 📲</button>
         </div>
 
     </div>
@@ -265,6 +315,86 @@
     </footer>
 
     <script>
+        /* Product Data Dictionary */
+        const productData = {
+            ar: {
+                fishPlaceholder: "-- اختر نوع السمك المطلوبة (اختياري) --",
+                fish: ["هامور", "كنعد", "شعري", "صافي", "سبيطي", "شعور", "بياض", "ناجل", "حريد", "بوري", "سردين", "تونة", "سيباس", "دنيس", "فيليه سمك", "سمك مجمد"],
+                
+                crustaceanPlaceholder: "-- اختر نوع القشريات المطلوبة (اختياري) --",
+                crustaceans: ["روبيان / جمبري", "روبيان جامبو", "روبيان كبير", "روبيان وسط", "روبيان صغير", "كابوريا / سرطان البحر", "لوبستر", "استاكوزا", "جراد البحر", "أم الربيان", "جراد بحر النرويج"],
+
+                molluskPlaceholder: "-- اختر نوع الرخويات المطلوبة (اختياري) --",
+                mollusks: ["حبار", "كاليماري", "أخطبوط", "محار", "أويستر", "بلح البحر", "جندوفلي", "بطلينوس (Clams)", "أسقلوب (Scallops)"],
+
+                gastropodPlaceholder: "-- اختر الصنف المطلوب (اختياري) --",
+                gastropods: ["حلزون البحر", "أذن البحر (Abalone)", "قواقع بحرية"],
+
+                othersPlaceholder: "-- اختر الصنف المطلوب (اختياري) --",
+                others: ["خيار البحر", "قنفذ البحر", "قناديل البحر", "كافيار / بيض السمك", "بطارخ السمك"],
+
+                frozenPlaceholder: "-- اختر المنتج المجمد/المجهز (اختياري) --",
+                frozen: ["روبيان مقشر", "روبيان بدون رأس", "روبيان كامل", "فيليه سمك مجمد", "حلقات كاليماري", "أخطبوط منظف", "بلح بحر منزوع الصدفة", "لحم كابوريا", "خلطات Seafood Mix", "سمك كامل مجمد", "أسماك مجمدة مستوردة", "منتجات متبلة وجاهزة للقلي"]
+            },
+            en: {
+                fishPlaceholder: "-- Select Fish Type (Optional) --",
+                fish: ["Grouper (Hamour)", "Kingfish (Kanaad)", "Sheri (Emperor)", "Safi (Rabbitfish)", "Subaiti", "Shaour", "White Seabream (Bayad)", "Coral Trout (Najil)", "Parrotfish (Harid)", "Mullet (Bouri)", "Sardines", "Tuna", "Sea Bass", "Sea Bream", "Fish Fillet", "Frozen Fish"],
+
+                crustaceanPlaceholder: "-- Select Crustaceans (Optional) --",
+                crustaceans: ["Shrimp / Prawns", "Jumbo Shrimp", "Large Shrimp", "Medium Shrimp", "Small Shrimp", "Crab", "Lobster", "Spiny Lobster", "Crayfish", "Slipper Lobster", "Norway Lobster"],
+
+                molluskPlaceholder: "-- Select Mollusks (Optional) --",
+                mollusks: ["Squid", "Calamari", "Octopus", "Oysters", "Fresh Oysters", "Mussels", "Clams", "Hard Clams", "Scallops"],
+
+                gastropodPlaceholder: "-- Select Gastropods (Optional) --",
+                gastropods: ["Sea Snails", "Abalone", "Sea Shells"],
+
+                othersPlaceholder: "-- Select Other Products (Optional) --",
+                others: ["Sea Cucumber", "Sea Urchin", "Jellyfish", "Caviar / Fish Roe", "Fish Roe (Bottarga)"],
+
+                frozenPlaceholder: "-- Select Frozen/Prepared Products (Optional) --",
+                frozen: ["Peeled Shrimp", "Headless Shrimp", "Whole Shrimp", "Frozen Fish Fillet", "Calamari Rings", "Cleaned Octopus", "Shelled Mussels", "Crab Meat", "Seafood Mix", "Whole Frozen Fish", "Imported Frozen Fish", "Breaded / Marinated Products"]
+            }
+        };
+
+        function populateSelect(elementId, placeholder, items) {
+            const select = document.getElementById(elementId);
+            select.innerHTML = `<option value="">${placeholder}</option>`;
+            items.forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = item;
+                opt.textContent = item;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderDropdowns(lang) {
+            const data = productData[lang];
+            populateSelect('selectFish', data.fishPlaceholder, data.fish);
+            populateSelect('selectCrustacean', data.crustaceanPlaceholder, data.crustaceans);
+            populateSelect('selectMollusk', data.molluskPlaceholder, data.mollusks);
+            populateSelect('selectGastropod', data.gastropodPlaceholder, data.gastropods);
+            populateSelect('selectOthers', data.othersPlaceholder, data.others);
+            populateSelect('selectFrozen', data.frozenPlaceholder, data.frozen);
+        }
+
+        /* Tab Switching Logic */
+        function openTab(evt, tabName) {
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            const buttons = document.getElementsByClassName("nav-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        /* WhatsApp Message Sender */
         function sendToWhatsApp() {
             const qty = document.getElementById('quantitySelect').value;
             
@@ -276,26 +406,48 @@
             const selectedFrozen = document.getElementById('selectFrozen').value;
 
             let selectedItems = [];
-            if (selectedFish) selectedItems.push("أسماك: " + selectedFish);
-            if (selectedCrustacean) selectedItems.push("قشريات: " + selectedCrustacean);
-            if (selectedMollusk) selectedItems.push("رخويات: " + selectedMollusk);
-            if (selectedGastropod) selectedItems.push("بطنيات القدم: " + selectedGastropod);
-            if (selectedOthers) selectedItems.push("أخرى: " + selectedOthers);
-            if (selectedFrozen) selectedItems.push("مجمدات ومجهزة: " + selectedFrozen);
+            if (currentLang === 'ar') {
+                if (selectedFish) selectedItems.push("أسماك: " + selectedFish);
+                if (selectedCrustacean) selectedItems.push("قشريات: " + selectedCrustacean);
+                if (selectedMollusk) selectedItems.push("رخويات: " + selectedMollusk);
+                if (selectedGastropod) selectedItems.push("بطنيات القدم: " + selectedGastropod);
+                if (selectedOthers) selectedItems.push("أخرى: " + selectedOthers);
+                if (selectedFrozen) selectedItems.push("مجمدات ومجهزة: " + selectedFrozen);
 
-            if (selectedItems.length === 0) {
-                alert('الرجاء اختيار صنف واحد على الأقل من القوائم قبل إرسال الطلب.');
-                return;
+                if (selectedItems.length === 0) {
+                    alert('الرجاء اختيار صنف واحد على الأقل من قائمة المنتجات قبل إرسال الطلب.');
+                    return;
+                }
+
+                let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة MGG:%0A%0A`;
+                message += `📦 *الكمية المطلوبة:* ${qty}%0A`;
+                message += `🐟 *الأصناف المختارة:*%0A- ` + selectedItems.join('%0A- ');
+
+                const phone = "966506677660";
+                window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            } else {
+                if (selectedFish) selectedItems.push("Fish: " + selectedFish);
+                if (selectedCrustacean) selectedItems.push("Crustaceans: " + selectedCrustacean);
+                if (selectedMollusk) selectedItems.push("Mollusks: " + selectedMollusk);
+                if (selectedGastropod) selectedItems.push("Gastropods: " + selectedGastropod);
+                if (selectedOthers) selectedItems.push("Others: " + selectedOthers);
+                if (selectedFrozen) selectedItems.push("Frozen/Prepared: " + selectedFrozen);
+
+                if (selectedItems.length === 0) {
+                    alert('Please select at least one item from the products menu before submitting.');
+                    return;
+                }
+
+                let message = `Hello, I would like to inquire about a wholesale order via MGG Group:%0A%0A`;
+                message += `📦 *Required Quantity:* ${qty}%0A`;
+                message += `🐟 *Selected Items:*%0A- ` + selectedItems.join('%0A- ');
+
+                const phone = "966506677660";
+                window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
             }
-
-            let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة MGG:%0A%0A`;
-            message += `📦 *الكمية المطلوبة:* ${qty}%0A`;
-            message += `🐟 *الأصناف المختارة:*%0A- ` + selectedItems.join('%0A- ');
-
-            const phone = "966506677660";
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
 
+        /* Bilingual Toggle */
         let currentLang = 'ar';
         function toggleLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
@@ -307,16 +459,57 @@
             document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Al-Moaber Gulf Group for Import & Export' : 'Wholesale Seafood Import & Export';
             document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'استيراد وتصدير الأسماك والمأكولات البحرية للجملة' : 'Wholesale Seafood Import & Export Services';
             document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.' : 'Connecting Gulf and global markets with fresh & frozen seafood via Strait of Hormuz and strategic shipping lanes.';
+            
+            /* Navigation Translations */
+            document.getElementById('mHome').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
+            document.getElementById('mVision').innerText = currentLang === 'ar' ? 'الرؤية' : 'Vision';
+            document.getElementById('mValue').innerText = currentLang === 'ar' ? 'القيم' : 'Value';
+            document.getElementById('mProducts').innerText = currentLang === 'ar' ? 'المنتجات' : 'Products';
+            document.getElementById('mNews').innerText = currentLang === 'ar' ? 'التطورات / الأخبار' : 'News';
+            document.getElementById('mContact').innerText = currentLang === 'ar' ? 'تواصل معنا' : 'Contacts us';
+
+            /* Vision / Value / News / Contact */
+            document.getElementById('visTitle').innerText = currentLang === 'ar' ? '👁️ الرؤية (Vision)' : '👁️ Vision';
+            document.getElementById('visDesc').innerText = currentLang === 'ar' ? 'أن نكون المورد المفضل والرائد في تجارة واستيراد المأكولات البحرية والأسماك الفاخرة على مستوى دول الخليج والشرق الأوسط، مع التزامنا بأعلى معايير الجودة والتوريد المستدام.' : 'To be the preferred and leading supplier in importing premium seafood and fish across the Gulf region and Middle East, adhering to highest quality standards.';
+            
+            document.getElementById('valTitle').innerText = currentLang === 'ar' ? '💎 القيم (Value)' : '💎 Core Values';
+            document.getElementById('valDesc').innerHTML = currentLang === 'ar' ? 
+                '• <strong>الجودة العالية:</strong> اختيار دقيق لأجود مصايد الأسماك.<br>• <strong>الأمانة والشفافية:</strong> التعامل الواضح والشفاف مع شركائنا في التجارة.<br>• <strong>السرعة والتوريد:</strong> حماية سلسلة التبريد وسرعة النقل البحري والبري.<br>• <strong>السلامة الغذائية:</strong> الامتثال لكافة معايير السلامة والجودة العالمية.' :
+                '• <strong>High Quality:</strong> Careful selection from top seafood fisheries.<br>• <strong>Integrity & Transparency:</strong> Clear, honest commercial partnerships.<br>• <strong>Fast Supply Chain:</strong> Cold-chain preservation and fast transport.<br>• <strong>Food Safety:</strong> Full compliance with global seafood safety standards.';
+
+            document.getElementById('newsTitle').innerText = currentLang === 'ar' ? '📰 التطورات والأخبار (News)' : '📰 News & Updates';
+            document.getElementById('newsDesc').innerText = currentLang === 'ar' ? 'توسيع خطوط التوريد الشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.' : 'Expanding shipping routes via strategic maritime corridors and Strait of Hormuz, ensuring fresh and frozen seafood deliveries reach suppliers with maximum freshness.';
+
+            document.getElementById('contactTitle').innerText = currentLang === 'ar' ? '📞 تواصل معنا (Contacts us)' : '📞 Contact Us';
+            document.getElementById('contactDesc').innerText = currentLang === 'ar' ? 'نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.' : 'We are ready to fulfill wholesale inquiries and commercial orders 24/7.';
+            document.getElementById('contactBtn').innerText = currentLang === 'ar' ? 'تواصل مباشر عبر الواتساب 📲' : 'Direct WhatsApp Chat 📲';
+
             document.getElementById('sc1Title').innerText = currentLang === 'ar' ? 'أسماك طازجة ومجمدة' : 'Fresh & Frozen Fish';
             document.getElementById('sc1Desc').innerText = currentLang === 'ar' ? 'تشكيلة واسعة من أجود أنواع الأسماك البحرية المحفوظة بالثلج للجملة.' : 'Wide variety of fresh seafood preserved on ice for wholesale supply.';
             document.getElementById('sc2Title').innerText = currentLang === 'ar' ? 'روبيان وقشريات فاخرة' : 'Premium Shrimp & Crustaceans';
             document.getElementById('sc2Desc').innerText = currentLang === 'ar' ? 'فرز احترافي لجميع أحجام الروبيان والكابوريا واللوبستر لتلبية الطلبات الكبيرة.' : 'Professional sorting for all sizes of shrimp, crabs, and lobsters for bulk orders.';
-            document.getElementById('formTitle').innerText = currentLang === 'ar' ? 'اختر أصناف المأكولات البحرية والكمية المطلوبة' : 'Select Seafood Products and Quantity';
-            document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الصنف المطلوب من القوائم المنسدلة ليصلك عرض السعر المباشر' : 'Select required items from dropdowns to receive instant price quotation';
+            
+            document.getElementById('formTitle').innerText = currentLang === 'ar' ? 'قائمة المنتجات واختيار الطلبات بالجملة' : 'Products List & Wholesale Order Selection';
+            document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الصنف المطلوب والكمية ليصلك عرض السعر المباشر' : 'Select required items and quantity to receive instant price quotation';
             document.getElementById('qtyLabel').innerText = currentLang === 'ar' ? 'الكمية المطلوبة (من 50 كيلو إلى 100 طن):' : 'Required Quantity (50 kg to 100 Tons):';
+            
+            /* Category Headers */
+            document.getElementById('cat1Header').innerText = currentLang === 'ar' ? '🐟 1. الأسماك (Fish)' : '🐟 1. Fish';
+            document.getElementById('cat2Header').innerText = currentLang === 'ar' ? '🦐 2. القشريات (Crustaceans)' : '🦐 2. Crustaceans';
+            document.getElementById('cat3Header').innerText = currentLang === 'ar' ? '🦑 3. الرخويات (Mollusks)' : '🦑 3. Mollusks';
+            document.getElementById('cat4Header').innerText = currentLang === 'ar' ? '🐚 4. بطنيات القدم البحرية (Gastropods)' : '🐚 4. Marine Gastropods';
+            document.getElementById('cat5Header').innerText = currentLang === 'ar' ? '🪸 5. فقاريات ولافقاريات بحرية أخرى (Other Marine Life)' : '🪸 5. Other Marine Life & Caviar';
+            document.getElementById('cat6Header').innerText = currentLang === 'ar' ? '🧊 6. منتجات بحرية مجمدة ومجهزة (Frozen & Prepared)' : '🧊 6. Frozen & Prepared Products';
+
             document.getElementById('sendBtn').innerText = currentLang === 'ar' ? 'إرسال الطلب عبر واتساب 📲' : 'Send Order via WhatsApp 📲';
             document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)' : '© All Rights Reserved - Al-Moaber Gulf Group (MGG)';
+
+            /* Re-render dropdown items in selected language */
+            renderDropdowns(currentLang);
         }
+
+        /* Initial Render on Load */
+        renderDropdowns('ar');
     </script>
 </body>
 </html>

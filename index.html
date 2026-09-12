@@ -8,71 +8,80 @@
         :root {
             --pink-soft: #ff66a3;         /* زهري فاتح */
             --pink-hover: #ff3385;        /* زهري عند التأشير */
-            --sky-blue: #38bdf8;         /* أزرق سماوي */
-            --bg-sky-grey: #f0f7ff;       /* خلفية رمادي فاتح مع أزرق سماوي */
-            --grey-dark: #1e293b;         /* رمادي داكن للنصوص والعناوين */
+            --sky-blue: #0284c7;          /* أزرق سماوي متناسق */
+            --bg-grey-light: #f4f6f9;     /* خلفية رمادي فاتح */
+            --grey-dark: #0f172a;         /* رمادي داكن ناعم */
             --card-bg: #ffffff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-sky-grey); color: var(--grey-dark); line-height: 1.6; }
+        body { background-color: var(--bg-grey-light); color: var(--grey-dark); line-height: 1.6; }
         
         .top-bar { background: var(--grey-dark); color: white; padding: 0.6rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--sky-blue); }
-        .lang-btn { background: var(--pink-soft); color: white; border: none; padding: 0.4rem 1rem; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .lang-btn { background: var(--pink-soft); color: white; border: none; padding: 0.4rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .lang-btn:hover { background: var(--pink-hover); }
 
         header { background: var(--grey-dark); color: white; padding: 1.8rem 1rem; text-align: center; border-bottom: 4px solid var(--pink-soft); }
         header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        header p { color: var(--sky-blue); font-weight: bold; font-size: 1.1rem; }
+        header p { color: #38bdf8; font-weight: bold; font-size: 1.1rem; }
         
-        /* Hero - Strait of Hormuz */
+        /* Hero - Strait of Hormuz Header */
         .hero {
-            background: linear-gradient(rgba(30, 41, 59, 0.75), rgba(255, 102, 163, 0.4)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(255, 102, 163, 0.35)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 3.5rem 1rem;
             border-bottom: 3px solid var(--sky-blue);
         }
-        .hero h2 { font-size: 2rem; color: #ffffff; margin-bottom: 0.8rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .hero h2 { font-size: 1.9rem; color: #ffffff; margin-bottom: 0.8rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
         .hero p { font-size: 1.1rem; max-width: 800px; margin: auto; line-height: 1.7; color: #f1f5f9; }
 
-        .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
+        .container { padding: 2rem 1rem; max-width: 1100px; margin: auto; }
+
+        /* Order Form & Grid Categories */
+        .order-section { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .order-section h2 { text-align: center; color: var(--grey-dark); margin-bottom: 0.5rem; font-size: 1.6rem; }
+        .order-section p.subtitle { text-align: center; color: var(--pink-soft); font-weight: bold; margin-bottom: 1.8rem; }
+
+        .qty-group { margin-bottom: 2rem; background: #e0f2fe; padding: 1.2rem; border-radius: 8px; border: 1px solid var(--sky-blue); }
+        .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--grey-dark); }
+        .qty-group select { width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background: white; font-weight: bold; }
+
+        .category-header { background: var(--grey-dark); color: #38bdf8; padding: 0.7rem 1.2rem; border-radius: 8px; margin: 2rem 0 1rem 0; font-size: 1.15rem; font-weight: bold; border-right: 5px solid var(--pink-soft); }
         
-        /* Display Showcase */
-        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15); border-top: 4px solid var(--pink-soft); border-bottom: 2px solid var(--sky-blue); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-content { padding: 1.2rem; }
-        .card h3 { color: var(--grey-dark); margin-bottom: 0.5rem; font-size: 1.2rem; border-bottom: 2px solid var(--pink-soft); display: inline-block; }
-
-        /* Order Form & Categories */
-        .order-section { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; margin-top: 1rem; }
-        .order-section h2 { text-align: center; color: var(--grey-dark); margin-bottom: 0.5rem; }
-        .order-section p.subtitle { text-align: center; color: var(--pink-soft); font-weight: bold; margin-bottom: 1.5rem; }
-
-        .qty-group { margin-bottom: 2rem; background: var(--bg-sky-grey); padding: 1rem; border-radius: 8px; border: 1px solid var(--sky-blue); }
-        .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; }
-        .qty-group select { width: 100%; padding: 0.7rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; }
-
-        .category-title { background: var(--grey-dark); color: var(--sky-blue); padding: 0.6rem 1rem; border-radius: 6px; margin: 1.5rem 0 1rem 0; font-size: 1.1rem; border-right: 4px solid var(--pink-soft); }
-        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; }
-        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; background: #f8fafc; padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer; }
-        .checkbox-item:hover { border-color: var(--pink-soft); }
-        .checkbox-item input { accent-color: var(--pink-soft); width: 18px; height: 18px; cursor: pointer; }
+        /* Grid Layout for Items */
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
+        
+        .checkbox-box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.6rem;
+            background: #f8fafc;
+            padding: 0.75rem 0.9rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            user-select: none;
+        }
+        .checkbox-box:hover { border-color: var(--pink-soft); background: #fff5f8; transform: translateY(-2px); }
+        .checkbox-box input[type="checkbox"] { accent-color: var(--pink-soft); width: 18px; height: 18px; cursor: pointer; }
+        .checkbox-box span { font-size: 0.95rem; font-weight: 600; color: #334155; }
 
         /* WhatsApp Button */
-        .btn-send { display: block; background: var(--pink-soft); color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+        .btn-send { display: block; background: var(--pink-soft); color: white; border: none; padding: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 2.5rem; width: 100%; text-align: center; font-size: 1.25rem; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 102, 163, 0.3); transition: 0.3s; }
         .btn-send:hover { background: var(--pink-hover); }
 
         footer { background: var(--grey-dark); color: white; text-align: center; padding: 1.2rem; margin-top: 3rem; border-top: 3px solid var(--pink-soft); }
-        footer p { color: var(--sky-blue); }
+        footer p { color: #38bdf8; }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <span style="font-size: 0.9rem; font-weight: bold; color: var(--sky-blue);">MGG Trading</span>
+        <span style="font-size: 0.9rem; font-weight: bold; color: #38bdf8;">MGG Trading</span>
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
     </div>
 
@@ -88,28 +97,9 @@
 
     <div class="container">
         
-        <!-- Ice Fish Showcase -->
-        <div class="showcase">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80" alt="Fresh Fish on Ice">
-                <div class="card-content">
-                    <h3 id="sc1Title">أسماك طازجة على الثلج</h3>
-                    <p id="sc1Desc">أجود أنواع الأسماك البحرية المحفوظة بالثلج لتصل بأعلى جودة.</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Shrimp on Ice">
-                <div class="card-content">
-                    <h3 id="sc2Title">روبيان وقشريات طازجة</h3>
-                    <p id="sc2Desc">فرز وتجهيز متكامل للروبيان والقشريات بأحجام مختلفة للجملة.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Order Form Section -->
         <div class="order-section">
-            <h2 id="formTitle">نموذج طلب المأكولات البحرية بالجملة</h2>
-            <p class="subtitle" id="formSub">حدد الكمية المطلوب إمدادها والأنواع ليصلك عرض السعر المباشر</p>
+            <h2 id="formTitle">اختر أصناف المأكولات البحرية والكمية المطلوبة</h2>
+            <p class="subtitle" id="formSub">حدد الأصناف المطلوبة والكمية ليصلك عرض السعر المباشر</p>
 
             <!-- Quantity Selection -->
             <div class="qty-group">
@@ -124,85 +114,90 @@
                 </select>
             </div>
 
-            <!-- Categories & Checkboxes -->
-            <div class="category-title">1. 🐟 الأسماك (Fish)</div>
+            <!-- Category 1 -->
+            <div class="category-header">1. 🐟 الأسماك (Fish)</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="هامور"> هامور</label>
-                <label class="checkbox-item"><input type="checkbox" value="كنعد"> كنعد</label>
-                <label class="checkbox-item"><input type="checkbox" value="شعري"> شعري</label>
-                <label class="checkbox-item"><input type="checkbox" value="صافي"> صافي</label>
-                <label class="checkbox-item"><input type="checkbox" value="سبيطي"> سبيطي</label>
-                <label class="checkbox-item"><input type="checkbox" value="شعور"> شعور</label>
-                <label class="checkbox-item"><input type="checkbox" value="بياض"> بياض</label>
-                <label class="checkbox-item"><input type="checkbox" value="ناجل"> ناجل</label>
-                <label class="checkbox-item"><input type="checkbox" value="حريد"> حريد</label>
-                <label class="checkbox-item"><input type="checkbox" value="بوري"> بوري</label>
-                <label class="checkbox-item"><input type="checkbox" value="سردين"> سردين</label>
-                <label class="checkbox-item"><input type="checkbox" value="تونة"> تونة</label>
-                <label class="checkbox-item"><input type="checkbox" value="سيباس"> سيباس</label>
-                <label class="checkbox-item"><input type="checkbox" value="دنيس"> دنيس</label>
-                <label class="checkbox-item"><input type="checkbox" value="فيليه سمك"> فيليه سمك</label>
-                <label class="checkbox-item"><input type="checkbox" value="سمك مجمد"> سمك مجمد</label>
+                <label class="checkbox-box"><input type="checkbox" value="هامور"> <span>هامور</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="كنعد"> <span>كنعد</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="شعري"> <span>شعري</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="صافي"> <span>صافي</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="سبيطي"> <span>سبيطي</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="شعور"> <span>شعور</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بياض"> <span>بياض</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="ناجل"> <span>ناجل</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="حريد"> <span>حريد</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بوري"> <span>بوري</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="سردين"> <span>سردين</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="تونة"> <span>تونة</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="سيباس"> <span>سيباس</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="دنيس"> <span>دنيس</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="فيليه سمك"> <span>فيليه سمك</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="سمك مجمد"> <span>سمك مجمد</span></label>
             </div>
 
-            <div class="category-title">2. 🦐 القشريات (Crustaceans)</div>
+            <!-- Category 2 -->
+            <div class="category-header">2. 🦐 القشريات (Crustaceans)</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="روبيان / جمبري / قريدس"> روبيان / جمبري</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان جامبو"> روبيان جامبو</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان كبير"> روبيان كبير</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان وسط"> روبيان وسط</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان صغير"> روبيان صغير</label>
-                <label class="checkbox-item"><input type="checkbox" value="كابوريا / سرطان البحر"> كابوريا / سرطان البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="لوبستر"> لوبستر</label>
-                <label class="checkbox-item"><input type="checkbox" value="استاكوزا"> استاكوزا</label>
-                <label class="checkbox-item"><input type="checkbox" value="جراد البحر"> جراد البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="أم الربيان"> أم الربيان</label>
-                <label class="checkbox-item"><input type="checkbox" value="جراد بحر النرويج"> جراد بحر النرويج</label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان / جمبري"> <span>روبيان / جمبري</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان جامبو"> <span>روبيان جامبو</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان كبير"> <span>روبيان كبير</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان وسط"> <span>روبيان وسط</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان صغير"> <span>روبيان صغير</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="كابوريا / سرطان"> <span>كابوريا / سرطان</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="لوبستر"> <span>لوبستر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="استاكوزا"> <span>استاكوزا</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="جراد البحر"> <span>جراد البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أم الربيان"> <span>أم الربيان</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="جراد النرويج"> <span>جراد النرويج</span></label>
             </div>
 
-            <div class="category-title">3. 🦑 الرخويات (Mollusks)</div>
+            <!-- Category 3 -->
+            <div class="category-header">3. 🦑 الرخويات (Mollusks)</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="حبار"> حبار</label>
-                <label class="checkbox-item"><input type="checkbox" value="كاليماري"> كاليماري</label>
-                <label class="checkbox-item"><input type="checkbox" value="أخطبوط"> أخطبوط</label>
-                <label class="checkbox-item"><input type="checkbox" value="محار"> محار</label>
-                <label class="checkbox-item"><input type="checkbox" value="أويستر"> أويستر</label>
-                <label class="checkbox-item"><input type="checkbox" value="بلح البحر"> بلح البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="جندوفلي"> جندوفلي</label>
-                <label class="checkbox-item"><input type="checkbox" value="بطلينوس / Clams"> بطلينوس / Clams</label>
-                <label class="checkbox-item"><input type="checkbox" value="أسقلوب / Scallops"> أسقلوب / Scallops</label>
+                <label class="checkbox-box"><input type="checkbox" value="حبار"> <span>حبار</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="كاليماري"> <span>كاليماري</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أخطبوط"> <span>أخطبوط</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="محار"> <span>محار</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أويستر"> <span>أويستر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بلح البحر"> <span>بلح البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="جندوفلي"> <span>جندوفلي</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بطلينوس / Clams"> <span>بطلينوس / Clams</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أسقلوب / Scallops"> <span>أسقلوب / Scallops</span></label>
             </div>
 
-            <div class="category-title">4. 🐚 بطنيات القدم البحرية</div>
+            <!-- Category 4 -->
+            <div class="category-header">4. 🐚 بطنيات القدم البحرية</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="حلزون البحر"> حلزون البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="أذن البحر / Abalone"> أذن البحر / Abalone</label>
-                <label class="checkbox-item"><input type="checkbox" value="قواقع بحرية"> قواقع بحرية</label>
+                <label class="checkbox-box"><input type="checkbox" value="حلزون البحر"> <span>حلزون البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أذن البحر / Abalone"> <span>أذن البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="قواقع بحرية"> <span>قواقع بحرية</span></label>
             </div>
 
-            <div class="category-title">5. 🪸 فقاريات ولافقاريات بحرية أخرى</div>
+            <!-- Category 5 -->
+            <div class="category-header">5. 🪸 فقاريات ولافقاريات بحرية أخرى</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="خيار البحر"> خيار البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="قنفذ البحر"> قنفذ البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="قناديل البحر"> قناديل البحر</label>
-                <label class="checkbox-item"><input type="checkbox" value="كافيار / بيض السمك"> كافيار / بيض السمك</label>
-                <label class="checkbox-item"><input type="checkbox" value="بطارخ السمك"> بطارخ السمك</label>
+                <label class="checkbox-box"><input type="checkbox" value="خيار البحر"> <span>خيار البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="قنفذ البحر"> <span>قنفذ البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="قناديل البحر"> <span>قناديل البحر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="كافيار / بيض السمك"> <span>كافيار / بيض السمك</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بطارخ السمك"> <span>بطارخ السمك</span></label>
             </div>
 
-            <div class="category-title">6. 🧊 منتجات بحرية مجمدة ومجهزة</div>
+            <!-- Category 6 -->
+            <div class="category-header">6. 🧊 منتجات بحرية مجمدة ومجهزة</div>
             <div class="checkbox-grid">
-                <label class="checkbox-item"><input type="checkbox" value="روبيان مقشر"> روبيان مقشر</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان بدون رأس"> روبيان بدون رأس</label>
-                <label class="checkbox-item"><input type="checkbox" value="روبيان كامل"> روبيان كامل</label>
-                <label class="checkbox-item"><input type="checkbox" value="فيليه سمك مجمد"> فيليه سمك مجمد</label>
-                <label class="checkbox-item"><input type="checkbox" value="حلقات كاليماري"> حلقات كاليماري</label>
-                <label class="checkbox-item"><input type="checkbox" value="أخطبوط منظف"> أخطبوط منظف</label>
-                <label class="checkbox-item"><input type="checkbox" value="بلح بحر منزوع الصدفة"> بلح بحر منزوع الصدفة</label>
-                <label class="checkbox-item"><input type="checkbox" value="لحم كابوريا"> لحم كابوريا</label>
-                <label class="checkbox-item"><input type="checkbox" value="خلطات Seafood Mix"> خلطات Seafood Mix</label>
-                <label class="checkbox-item"><input type="checkbox" value="سمك كامل مجمد"> سمك كامل مجمد</label>
-                <label class="checkbox-item"><input type="checkbox" value="أسماك مجمدة مستوردة"> أسماك مجمدة مستوردة</label>
-                <label class="checkbox-item"><input type="checkbox" value="منتجات متبلة وجاهزة"> منتجات متبلة وجاهزة</label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان مقشر"> <span>روبيان مقشر</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان بدون رأس"> <span>روبيان بدون رأس</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="روبيان كامل"> <span>روبيان كامل</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="فيليه سمك مجمد"> <span>فيليه مجمد</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="حلقات كاليماري"> <span>حلقات كاليماري</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أخطبوط منظف"> <span>أخطبوط منظف</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="بلح بحر منزوع الصدفة"> <span>بلح بدون صدف</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="لحم كابوريا"> <span>لحم كابوريا</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="خلطات Seafood Mix"> <span>خلطة مأكولات</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="سمك كامل مجمد"> <span>سمك كامل مجمد</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="أسماك مجمدة مستوردة"> <span>أسماك مستوردة</span></label>
+                <label class="checkbox-box"><input type="checkbox" value="منتجات متبلة وجاهزة"> <span>جاهز للقلي</span></label>
             </div>
 
             <button onclick="sendToWhatsApp()" class="btn-send" id="sendBtn">إرسال الطلب عبر واتساب 📲</button>
@@ -220,7 +215,7 @@
             const checkedBoxes = document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked');
             
             if (checkedBoxes.length === 0) {
-                alert('الرجاء اختيار نوع واحد على الأقل من المنتجات البحرية.');
+                alert('الرجاء اختيار صنف واحد على الأقل من الأصناف المطروحة.');
                 return;
             }
 
@@ -231,7 +226,7 @@
 
             let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة MGG:%0A%0A`;
             message += `📦 *الكمية المطلوبة:* ${qty}%0A`;
-            message += `🐟 *الأنواع المختارة:*%0A- ` + selectedItems.join('%0A- ');
+            message += `🐟 *الأصناف المختارة:*%0A- ` + selectedItems.join('%0A- ');
 
             const phone = "966506677660";
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
@@ -248,8 +243,8 @@
             document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Al-Moaber Gulf Group for Import & Export' : 'Wholesale Seafood Import & Export';
             document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'استيراد وتصدير الأسماك والمأكولات البحرية للجملة' : 'Wholesale Seafood Import & Export Services';
             document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.' : 'Connecting Gulf and global markets with fresh & frozen seafood via Strait of Hormuz and strategic shipping lanes.';
-            document.getElementById('formTitle').innerText = currentLang === 'ar' ? 'نموذج طلب المأكولات البحرية بالجملة' : 'Wholesale Seafood Order Form';
-            document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الكمية المطلوب إمدادها والأنواع ليصلك عرض السعر المباشر' : 'Select required quantity and items for an instant quotation';
+            document.getElementById('formTitle').innerText = currentLang === 'ar' ? 'اختر أصناف المأكولات البحرية والكمية المطلوبة' : 'Select Seafood Products and Required Quantity';
+            document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الأصناف المطلوبة والكمية ليصلك عرض السعر المباشر' : 'Select required items and quantity for an instant price quotation';
             document.getElementById('qtyLabel').innerText = currentLang === 'ar' ? 'الكمية المطلوبة (من 50 كيلو إلى 100 طن):' : 'Required Quantity (50 kg to 100 Tons):';
             document.getElementById('sendBtn').innerText = currentLang === 'ar' ? 'إرسال الطلب عبر واتساب 📲' : 'Send Order via WhatsApp 📲';
             document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)' : '© All Rights Reserved - Al-Moaber Gulf Group (MGG)';

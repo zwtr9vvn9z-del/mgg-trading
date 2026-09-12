@@ -6,61 +6,73 @@
     <title>MGG - Al-Moaber Gulf Group | شركة المعبر الخليجي للاستيراد والتصدير</title>
     <style>
         :root {
-            --pink-dark: #99004d;      /* زهري غامق */
-            --pink-hover: #cc0066;     /* زهري فاتح عند التأشير */
-            --blue-light: #38bdf8;     /* أزرق فاتح */
-            --grey-dark: #1e293b;      /* رمادي داكن خلفية وبنية */
-            --grey-medium: #334155;    /* رمادي متوسط للفرعيات */
-            --grey-light: #f1f5f9;     /* رمادي فاتح خلفية عامة */
-            --card-bg: #ffffff;        /* خلفية البطاقات */
+            --pink-soft: #ff66a3;         /* زهري فاتح */
+            --pink-hover: #ff3385;        /* زهري عند التأشير */
+            --sky-blue: #38bdf8;         /* أزرق سماوي */
+            --bg-sky-grey: #f0f7ff;       /* خلفية رمادي فاتح مع أزرق سماوي */
+            --grey-dark: #1e293b;         /* رمادي داكن للنصوص والعناوين */
+            --card-bg: #ffffff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--grey-light); color: var(--grey-dark); line-height: 1.6; }
+        body { background-color: var(--bg-sky-grey); color: var(--grey-dark); line-height: 1.6; }
         
-        /* Language Bar */
-        .top-bar { background: var(--grey-dark); color: white; padding: 0.6rem 1rem; text-align: left; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--blue-light); }
-        .lang-btn { background: var(--pink-dark); color: white; border: none; padding: 0.4rem 1rem; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .top-bar { background: var(--grey-dark); color: white; padding: 0.6rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--sky-blue); }
+        .lang-btn { background: var(--pink-soft); color: white; border: none; padding: 0.4rem 1rem; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .lang-btn:hover { background: var(--pink-hover); }
 
-        header { background: var(--grey-dark); color: white; padding: 1.8rem 1rem; text-align: center; border-bottom: 4px solid var(--pink-dark); }
-        header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #ffffff; }
-        header p { color: var(--blue-light); font-weight: bold; font-size: 1.1rem; }
+        header { background: var(--grey-dark); color: white; padding: 1.8rem 1rem; text-align: center; border-bottom: 4px solid var(--pink-soft); }
+        header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        header p { color: var(--sky-blue); font-weight: bold; font-size: 1.1rem; }
         
-        /* Hero Banner - Maritime Strait */
+        /* Hero - Strait of Hormuz */
         .hero {
-            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(153, 0, 77, 0.65)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(30, 41, 59, 0.75), rgba(255, 102, 163, 0.4)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 3.5rem 1rem;
-            border-bottom: 3px solid var(--blue-light);
+            padding: 4rem 1rem;
+            border-bottom: 3px solid var(--sky-blue);
         }
-        .hero h2 { font-size: 1.8rem; color: #ffffff; margin-bottom: 0.8rem; }
-        .hero p { font-size: 1.1rem; max-width: 800px; margin: auto; line-height: 1.7; color: #e2e8f0; }
+        .hero h2 { font-size: 2rem; color: #ffffff; margin-bottom: 0.8rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .hero p { font-size: 1.1rem; max-width: 800px; margin: auto; line-height: 1.7; color: #f1f5f9; }
 
         .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
         
-        /* Product Cards */
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.08); border-top: 4px solid var(--pink-dark); border-bottom: 2px solid var(--blue-light); display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 210px; object-fit: cover; }
-        .card-content { padding: 1.5rem; flex-grow: 1; }
-        .card h3 { color: var(--pink-dark); margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .card p { color: var(--grey-medium); }
-        
-        /* WhatsApp Button */
-        .btn { display: inline-block; background: var(--pink-dark); color: white; text-decoration: none; padding: 0.9rem 1.5rem; border-radius: 6px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; box-shadow: 0 3px 6px rgba(0,0,0,0.15); border: 1px solid var(--blue-light); transition: 0.3s; }
-        .btn:hover { background: var(--pink-hover); }
+        /* Display Showcase */
+        .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15); border-top: 4px solid var(--pink-soft); border-bottom: 2px solid var(--sky-blue); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-content { padding: 1.2rem; }
+        .card h3 { color: var(--grey-dark); margin-bottom: 0.5rem; font-size: 1.2rem; border-bottom: 2px solid var(--pink-soft); display: inline-block; }
 
-        footer { background: var(--grey-dark); color: white; text-align: center; padding: 1.2rem; margin-top: 2.5rem; font-size: 0.95rem; border-top: 3px solid var(--pink-dark); }
-        footer p { color: var(--blue-light); }
+        /* Order Form & Categories */
+        .order-section { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; margin-top: 1rem; }
+        .order-section h2 { text-align: center; color: var(--grey-dark); margin-bottom: 0.5rem; }
+        .order-section p.subtitle { text-align: center; color: var(--pink-soft); font-weight: bold; margin-bottom: 1.5rem; }
+
+        .qty-group { margin-bottom: 2rem; background: var(--bg-sky-grey); padding: 1rem; border-radius: 8px; border: 1px solid var(--sky-blue); }
+        .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; }
+        .qty-group select { width: 100%; padding: 0.7rem; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; }
+
+        .category-title { background: var(--grey-dark); color: var(--sky-blue); padding: 0.6rem 1rem; border-radius: 6px; margin: 1.5rem 0 1rem 0; font-size: 1.1rem; border-right: 4px solid var(--pink-soft); }
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; background: #f8fafc; padding: 0.5rem 0.8rem; border-radius: 6px; border: 1px solid #e2e8f0; cursor: pointer; }
+        .checkbox-item:hover { border-color: var(--pink-soft); }
+        .checkbox-item input { accent-color: var(--pink-soft); width: 18px; height: 18px; cursor: pointer; }
+
+        /* WhatsApp Button */
+        .btn-send { display: block; background: var(--pink-soft); color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: 0.3s; }
+        .btn-send:hover { background: var(--pink-hover); }
+
+        footer { background: var(--grey-dark); color: white; text-align: center; padding: 1.2rem; margin-top: 3rem; border-top: 3px solid var(--pink-soft); }
+        footer p { color: var(--sky-blue); }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <span style="font-size: 0.9rem; font-weight: bold; color: var(--blue-light);">MGG Trading</span>
+        <span style="font-size: 0.9rem; font-weight: bold; color: var(--sky-blue);">MGG Trading</span>
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
     </div>
 
@@ -71,28 +83,131 @@
 
     <div class="hero">
         <h2 id="heroTitle">استيراد وتصدير الأسماك والمأكولات البحرية للجملة</h2>
-        <p id="heroDesc">نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية عبر الممرات البحرية الاستراتيجية.</p>
+        <p id="heroDesc">نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.</p>
     </div>
 
     <div class="container">
-        <div class="products">
+        
+        <!-- Ice Fish Showcase -->
+        <div class="showcase">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80" alt="Fresh & Frozen Fish">
+                <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80" alt="Fresh Fish on Ice">
                 <div class="card-content">
-                    <h3 id="p1Title">أسماك طازجة ومجمدة</h3>
-                    <p id="p1Desc">توريد كميات جملة للمطاعم والفنادق والأسواق المركزية بأعلى معايير الجودة والتبريد.</p>
+                    <h3 id="sc1Title">أسماك طازجة على الثلج</h3>
+                    <p id="sc1Desc">أجود أنواع الأسماك البحرية المحفوظة بالثلج لتصل بأعلى جودة.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Shrimp & Seafood">
+                <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80" alt="Shrimp on Ice">
                 <div class="card-content">
-                    <h3 id="p2Title">روبيان ومأكولات بحرية فاخرة</h3>
-                    <p id="p2Desc">روبيان، كابوريا، وأسماك فاخرة مستوردة ومصنفة حسب طلب العميل.</p>
+                    <h3 id="sc2Title">روبيان وقشريات طازجة</h3>
+                    <p id="sc2Desc">فرز وتجهيز متكامل للروبيان والقشريات بأحجام مختلفة للجملة.</p>
                 </div>
             </div>
         </div>
 
-        <a href="https://wa.me/966506677660" id="whatsappBtn" class="btn" target="_blank">تواصل معنا عبر واتساب للطلبات والاستفسار</a>
+        <!-- Order Form Section -->
+        <div class="order-section">
+            <h2 id="formTitle">نموذج طلب المأكولات البحرية بالجملة</h2>
+            <p class="subtitle" id="formSub">حدد الكمية المطلوب إمدادها والأنواع ليصلك عرض السعر المباشر</p>
+
+            <!-- Quantity Selection -->
+            <div class="qty-group">
+                <label for="quantitySelect" id="qtyLabel">الكمية المطلوبة (من 50 كيلو إلى 100 طن):</label>
+                <select id="quantitySelect">
+                    <option value="50 - 100 كيلو">50 - 100 كيلو</option>
+                    <option value="100 - 500 كيلو">100 - 500 كيلو</option>
+                    <option value="1 طن - 5 طن">1 طن - 5 طن</option>
+                    <option value="5 طن - 20 طن">5 طن - 20 طن</option>
+                    <option value="20 طن - 50 طن">20 طن - 50 طن</option>
+                    <option value="50 طن - 100 طن">50 طن - 100 طن</option>
+                </select>
+            </div>
+
+            <!-- Categories & Checkboxes -->
+            <div class="category-title">1. 🐟 الأسماك (Fish)</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="هامور"> هامور</label>
+                <label class="checkbox-item"><input type="checkbox" value="كنعد"> كنعد</label>
+                <label class="checkbox-item"><input type="checkbox" value="شعري"> شعري</label>
+                <label class="checkbox-item"><input type="checkbox" value="صافي"> صافي</label>
+                <label class="checkbox-item"><input type="checkbox" value="سبيطي"> سبيطي</label>
+                <label class="checkbox-item"><input type="checkbox" value="شعور"> شعور</label>
+                <label class="checkbox-item"><input type="checkbox" value="بياض"> بياض</label>
+                <label class="checkbox-item"><input type="checkbox" value="ناجل"> ناجل</label>
+                <label class="checkbox-item"><input type="checkbox" value="حريد"> حريد</label>
+                <label class="checkbox-item"><input type="checkbox" value="بوري"> بوري</label>
+                <label class="checkbox-item"><input type="checkbox" value="سردين"> سردين</label>
+                <label class="checkbox-item"><input type="checkbox" value="تونة"> تونة</label>
+                <label class="checkbox-item"><input type="checkbox" value="سيباس"> سيباس</label>
+                <label class="checkbox-item"><input type="checkbox" value="دنيس"> دنيس</label>
+                <label class="checkbox-item"><input type="checkbox" value="فيليه سمك"> فيليه سمك</label>
+                <label class="checkbox-item"><input type="checkbox" value="سمك مجمد"> سمك مجمد</label>
+            </div>
+
+            <div class="category-title">2. 🦐 القشريات (Crustaceans)</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="روبيان / جمبري / قريدس"> روبيان / جمبري</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان جامبو"> روبيان جامبو</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان كبير"> روبيان كبير</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان وسط"> روبيان وسط</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان صغير"> روبيان صغير</label>
+                <label class="checkbox-item"><input type="checkbox" value="كابوريا / سرطان البحر"> كابوريا / سرطان البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="لوبستر"> لوبستر</label>
+                <label class="checkbox-item"><input type="checkbox" value="استاكوزا"> استاكوزا</label>
+                <label class="checkbox-item"><input type="checkbox" value="جراد البحر"> جراد البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="أم الربيان"> أم الربيان</label>
+                <label class="checkbox-item"><input type="checkbox" value="جراد بحر النرويج"> جراد بحر النرويج</label>
+            </div>
+
+            <div class="category-title">3. 🦑 الرخويات (Mollusks)</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="حبار"> حبار</label>
+                <label class="checkbox-item"><input type="checkbox" value="كاليماري"> كاليماري</label>
+                <label class="checkbox-item"><input type="checkbox" value="أخطبوط"> أخطبوط</label>
+                <label class="checkbox-item"><input type="checkbox" value="محار"> محار</label>
+                <label class="checkbox-item"><input type="checkbox" value="أويستر"> أويستر</label>
+                <label class="checkbox-item"><input type="checkbox" value="بلح البحر"> بلح البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="جندوفلي"> جندوفلي</label>
+                <label class="checkbox-item"><input type="checkbox" value="بطلينوس / Clams"> بطلينوس / Clams</label>
+                <label class="checkbox-item"><input type="checkbox" value="أسقلوب / Scallops"> أسقلوب / Scallops</label>
+            </div>
+
+            <div class="category-title">4. 🐚 بطنيات القدم البحرية</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="حلزون البحر"> حلزون البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="أذن البحر / Abalone"> أذن البحر / Abalone</label>
+                <label class="checkbox-item"><input type="checkbox" value="قواقع بحرية"> قواقع بحرية</label>
+            </div>
+
+            <div class="category-title">5. 🪸 فقاريات ولافقاريات بحرية أخرى</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="خيار البحر"> خيار البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="قنفذ البحر"> قنفذ البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="قناديل البحر"> قناديل البحر</label>
+                <label class="checkbox-item"><input type="checkbox" value="كافيار / بيض السمك"> كافيار / بيض السمك</label>
+                <label class="checkbox-item"><input type="checkbox" value="بطارخ السمك"> بطارخ السمك</label>
+            </div>
+
+            <div class="category-title">6. 🧊 منتجات بحرية مجمدة ومجهزة</div>
+            <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" value="روبيان مقشر"> روبيان مقشر</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان بدون رأس"> روبيان بدون رأس</label>
+                <label class="checkbox-item"><input type="checkbox" value="روبيان كامل"> روبيان كامل</label>
+                <label class="checkbox-item"><input type="checkbox" value="فيليه سمك مجمد"> فيليه سمك مجمد</label>
+                <label class="checkbox-item"><input type="checkbox" value="حلقات كاليماري"> حلقات كاليماري</label>
+                <label class="checkbox-item"><input type="checkbox" value="أخطبوط منظف"> أخطبوط منظف</label>
+                <label class="checkbox-item"><input type="checkbox" value="بلح بحر منزوع الصدفة"> بلح بحر منزوع الصدفة</label>
+                <label class="checkbox-item"><input type="checkbox" value="لحم كابوريا"> لحم كابوريا</label>
+                <label class="checkbox-item"><input type="checkbox" value="خلطات Seafood Mix"> خلطات Seafood Mix</label>
+                <label class="checkbox-item"><input type="checkbox" value="سمك كامل مجمد"> سمك كامل مجمد</label>
+                <label class="checkbox-item"><input type="checkbox" value="أسماك مجمدة مستوردة"> أسماك مجمدة مستوردة</label>
+                <label class="checkbox-item"><input type="checkbox" value="منتجات متبلة وجاهزة"> منتجات متبلة وجاهزة</label>
+            </div>
+
+            <button onclick="sendToWhatsApp()" class="btn-send" id="sendBtn">إرسال الطلب عبر واتساب 📲</button>
+        </div>
+
     </div>
 
     <footer>
@@ -100,52 +215,44 @@
     </footer>
 
     <script>
-        let currentLang = 'ar';
-        const translations = {
-            ar: {
-                langBtn: 'English',
-                title: 'شركة المعبر الخليجي للاستيراد والتصدير (MGG)',
-                subtitle: 'Al-Moaber Gulf Group for Import & Export',
-                heroTitle: 'استيراد وتصدير الأسماك والمأكولات البحرية للجملة',
-                heroDesc: 'نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية عبر الممرات البحرية الاستراتيجية.',
-                p1Title: 'أسماك طازجة ومجمدة',
-                p1Desc: 'توريد كميات جملة للمطاعم والفنادق والأسواق المركزية بأعلى معايير الجودة والتبريد.',
-                p2Title: 'روبيان ومأكولات بحرية فاخرة',
-                p2Desc: 'روبيان، كابوريا، وأسماك فاخرة مستوردة ومصنفة حسب طلب العميل.',
-                whatsappBtn: 'تواصل معنا عبر واتساب للطلبات والاستفسار',
-                footerText: '© جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)'
-            },
-            en: {
-                langBtn: 'عربي',
-                title: 'Al-Moaber Gulf Group for Import & Export (MGG)',
-                subtitle: 'Wholesale Seafood Import & Export',
-                heroTitle: 'Wholesale Seafood Import & Export Services',
-                heroDesc: 'Connecting Gulf and global markets with premium seafood via strategic maritime routes.',
-                p1Title: 'Fresh & Frozen Fish',
-                p1Desc: 'Wholesale supply for restaurants, hotels, and central markets with top cold-chain standards.',
-                p2Title: 'Premium Shrimp & Seafood',
-                p2Desc: 'High-quality shrimp, crab, and specialty fish imported to your specifications.',
-                whatsappBtn: 'Contact Us on WhatsApp for Orders',
-                footerText: '© All Rights Reserved - Al-Moaber Gulf Group (MGG)'
+        function sendToWhatsApp() {
+            const qty = document.getElementById('quantitySelect').value;
+            const checkedBoxes = document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked');
+            
+            if (checkedBoxes.length === 0) {
+                alert('الرجاء اختيار نوع واحد على الأقل من المنتجات البحرية.');
+                return;
             }
-        };
 
+            let selectedItems = [];
+            checkedBoxes.forEach(item => {
+                selectedItems.push(item.value);
+            });
+
+            let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة MGG:%0A%0A`;
+            message += `📦 *الكمية المطلوبة:* ${qty}%0A`;
+            message += `🐟 *الأنواع المختارة:*%0A- ` + selectedItems.join('%0A- ');
+
+            const phone = "966506677660";
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        let currentLang = 'ar';
         function toggleLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             document.documentElement.lang = currentLang;
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
-            document.getElementById('langBtn').innerText = translations[currentLang].langBtn;
-            document.getElementById('title').innerText = translations[currentLang].title;
-            document.getElementById('subtitle').innerText = translations[currentLang].subtitle;
-            document.getElementById('heroTitle').innerText = translations[currentLang].heroTitle;
-            document.getElementById('heroDesc').innerText = translations[currentLang].heroDesc;
-            document.getElementById('p1Title').innerText = translations[currentLang].p1Title;
-            document.getElementById('p1Desc').innerText = translations[currentLang].p1Desc;
-            document.getElementById('p2Title').innerText = translations[currentLang].p2Title;
-            document.getElementById('p2Desc').innerText = translations[currentLang].p2Desc;
-            document.getElementById('whatsappBtn').innerText = translations[currentLang].whatsappBtn;
-            document.getElementById('footerText').innerText = translations[currentLang].footerText;
+            document.getElementById('langBtn').innerText = currentLang === 'ar' ? 'English' : 'عربي';
+            document.getElementById('title').innerText = currentLang === 'ar' ? 'شركة المعبر الخليجي للاستيراد والتصدير (MGG)' : 'Al-Moaber Gulf Group for Import & Export (MGG)';
+            document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Al-Moaber Gulf Group for Import & Export' : 'Wholesale Seafood Import & Export';
+            document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'استيراد وتصدير الأسماك والمأكولات البحرية للجملة' : 'Wholesale Seafood Import & Export Services';
+            document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نربط أسواق الخليج والعالم بأجود مصادر الأسماك والمأكولات البحرية الطازجة والمجمدة عبر مضيق هرمز والممرات البحرية الاستراتيجية.' : 'Connecting Gulf and global markets with fresh & frozen seafood via Strait of Hormuz and strategic shipping lanes.';
+            document.getElementById('formTitle').innerText = currentLang === 'ar' ? 'نموذج طلب المأكولات البحرية بالجملة' : 'Wholesale Seafood Order Form';
+            document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الكمية المطلوب إمدادها والأنواع ليصلك عرض السعر المباشر' : 'Select required quantity and items for an instant quotation';
+            document.getElementById('qtyLabel').innerText = currentLang === 'ar' ? 'الكمية المطلوبة (من 50 كيلو إلى 100 طن):' : 'Required Quantity (50 kg to 100 Tons):';
+            document.getElementById('sendBtn').innerText = currentLang === 'ar' ? 'إرسال الطلب عبر واتساب 📲' : 'Send Order via WhatsApp 📲';
+            document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)' : '© All Rights Reserved - Al-Moaber Gulf Group (MGG)';
         }
     </script>
 </body>

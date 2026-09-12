@@ -3,73 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGG - Al-Moaber Gulf Group | شركة المعبر الخليجي للاستيراد والتصدير</title>
+    <title>معبر الخليج العصري | Modern Gulf Crossing</title>
     <style>
         :root {
-            --pink-light: #ff85c0;        /* زهري فاتح ناعم للكتابة */
-            --pink-hover: #ff4d94;        /* زهري عند التأشير */
-            --black-header: #111827;      /* خلفية سوداء */
-            --grey-border: #374151;       /* إطار رمادي */
-            --bg-grey-light: #f3f4f6;     /* خلفية الموقع رمادي فاتح */
-            --grey-dark: #1f2937;
+            /* Palette: Sky Blue, Golden Yellow, Soft Pink, Dark Navy */
+            --sky-blue: #0ea5e9;
+            --sky-blue-light: #e0f2fe;
+            --sky-blue-dark: #0284c7;
+            
+            --gold-yellow: #f59e0b;
+            --gold-yellow-hover: #d97706;
+            
+            --soft-pink: #ec4899;
+            --soft-pink-light: #fce7f3;
+            
+            --dark-navy: #0f172a;
             --card-bg: #ffffff;
+            --bg-light: #f8fafc;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-grey-light); color: var(--grey-dark); line-height: 1.6; }
-        
-        /* Top Header Bar */
-        .top-bar { background: var(--black-header); color: white; padding: 0.6rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--grey-border); }
-        .lang-btn { background: var(--pink-light); color: #111827; border: none; padding: 0.4rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .lang-btn:hover { background: var(--pink-hover); color: white; }
+        body { background-color: var(--bg-light); color: var(--dark-navy); line-height: 1.6; }
 
-        /* Main Header - Clickable Header to Return Home */
-        header { 
-            background: var(--black-header); 
-            color: var(--pink-light); 
-            padding: 1.8rem 1rem; 
-            text-align: center; 
-            border-bottom: 3px solid var(--grey-border); 
-            cursor: pointer; /* تجعل الهيدر قابل للضغط للعودة للرئيسية */
-            user-select: none;
+        /* Top Bar with Home Icon */
+        .top-bar {
+            background: var(--dark-navy);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--sky-blue);
         }
-        header h1 { font-size: 1.8rem; margin-bottom: 0.4rem; color: var(--pink-light); text-shadow: 0 0 5px rgba(255, 133, 192, 0.2); }
-        header p { color: #f472b6; font-weight: 600; font-size: 1rem; }
 
-        /* Navigation Bar based on Image Header */
+        /* Home Icon Button (Small & Neat) */
+        .home-icon-btn {
+            background: linear-gradient(135deg, var(--sky-blue), var(--soft-pink));
+            color: white;
+            border: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(14, 165, 233, 0.3);
+        }
+        .home-icon-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
+            background: linear-gradient(135deg, var(--gold-yellow), var(--soft-pink));
+            color: var(--dark-navy);
+        }
+
+        .lang-btn {
+            background: var(--gold-yellow);
+            color: var(--dark-navy);
+            border: none;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .lang-btn:hover { background: #fef08a; }
+
+        /* Header Gradient Banner */
+        header {
+            background: linear-gradient(135deg, #0284c7 0%, #0f172a 60%, #ec4899 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--gold-yellow);
+        }
+        header h1 {
+            font-size: 1.9rem;
+            margin-bottom: 0.3rem;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        header p {
+            color: #fef08a; /* Yellow Accent */
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* Navigation Bar */
         nav.main-nav {
-            background: #1f2937;
-            border-bottom: 3px solid var(--pink-light);
-            padding: 0.6rem 1rem;
+            background: #1e293b;
+            border-bottom: 3px solid var(--sky-blue);
+            padding: 0.5rem 1rem;
             overflow-x: auto;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         nav.main-nav ul {
             display: flex;
             justify-content: center;
             align-items: center;
             list-style: none;
-            gap: 0.8rem;
+            gap: 0.6rem;
             white-space: nowrap;
         }
         nav.main-nav ul li button {
             background: transparent;
             border: 1px solid transparent;
-            color: var(--pink-light);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            color: #e2e8f0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         nav.main-nav ul li button:hover, nav.main-nav ul li button.active {
-            background: var(--pink-light);
-            color: #111827;
-            border-color: var(--pink-hover);
-            box-shadow: 0 2px 8px rgba(255, 133, 192, 0.3);
+            background: linear-gradient(135deg, var(--sky-blue), var(--soft-pink));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
         }
 
         .container { padding: 2rem 1rem; max-width: 1000px; margin: auto; }
@@ -79,24 +136,25 @@
         .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 3rem 1.5rem;
-            border-radius: 12px;
+            border-radius: 14px;
             margin-bottom: 2rem;
-            border-bottom: 3px solid var(--pink-light);
+            border: 2px solid var(--sky-blue);
+            box-shadow: 0 6px 16px rgba(14, 165, 233, 0.15);
         }
-        .hero h2 { font-size: 1.8rem; color: var(--pink-light); margin-bottom: 0.8rem; }
-        .hero p { font-size: 1.1rem; max-width: 850px; margin: auto; line-height: 1.8; color: #e5e7eb; }
+        .hero h2 { font-size: 1.8rem; color: #fef08a; margin-bottom: 0.8rem; }
+        .hero p { font-size: 1.05rem; max-width: 850px; margin: auto; line-height: 1.8; color: #f1f5f9; }
 
         /* Section Cards */
         .info-card {
@@ -104,57 +162,54 @@
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 1.5rem;
-            border: 1px solid #e5e7eb;
-            border-right: 5px solid var(--pink-light);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            border-right: 5px solid var(--sky-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
         html[dir="ltr"] .info-card {
-            border-right: 1px solid #e5e7eb;
-            border-left: 5px solid var(--pink-light);
+            border-right: 1px solid #e2e8f0;
+            border-left: 5px solid var(--sky-blue);
         }
-        .info-card h2 { color: var(--black-header); margin-bottom: 1rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        .info-card p { font-size: 1.08rem; color: #374151; line-height: 1.8; }
+        .info-card h2 { color: var(--sky-blue-dark); margin-bottom: 1rem; font-size: 1.45rem; }
+        .info-card p { font-size: 1.05rem; color: #334155; line-height: 1.8; }
 
         /* Showcase Grid */
         .showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--grey-border); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .card img { width: 100%; height: 210px; object-fit: cover; }
         .card-content { padding: 1.2rem; text-align: center; }
-        .card h3 { color: var(--black-header); margin-bottom: 0.4rem; font-size: 1.2rem; }
-        .card p { color: #6b7280; font-size: 0.95rem; }
+        .card h3 { color: var(--dark-navy); margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .card p { color: #64748b; font-size: 0.92rem; }
 
         /* Order Form & Product Categories */
-        .order-section { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
-        .order-section h2 { text-align: center; color: var(--black-header); margin-bottom: 0.5rem; font-size: 1.6rem; }
-        .order-section p.subtitle { text-align: center; color: #db2777; font-weight: bold; margin-bottom: 2rem; }
+        .order-section { background: white; padding: 2rem; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        .order-section h2 { text-align: center; color: var(--dark-navy); margin-bottom: 0.4rem; font-size: 1.55rem; }
+        .order-section p.subtitle { text-align: center; color: var(--soft-pink); font-weight: bold; margin-bottom: 2rem; }
 
-        .qty-group { margin-bottom: 2rem; background: #f9fafb; padding: 1.2rem; border-radius: 8px; border: 1px solid #d1d5db; }
-        .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--black-header); }
-        .qty-group select { width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #d1d5db; font-size: 1rem; outline: none; background: white; font-weight: bold; }
+        .qty-group { margin-bottom: 2rem; background: var(--sky-blue-light); padding: 1.2rem; border-radius: 10px; border: 1px solid #bae6fd; }
+        .qty-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--sky-blue-dark); }
+        .qty-group select { width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #7dd3fc; font-size: 1rem; outline: none; background: white; font-weight: bold; color: var(--dark-navy); }
 
         .category-card {
             background: #ffffff;
-            border: 1px solid #d1d5db;
-            border-top: 4px solid var(--pink-light);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--gold-yellow);
             border-radius: 10px;
             padding: 1.2rem;
             margin-bottom: 1.2rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .category-card h3 {
-            font-size: 1.15rem;
-            color: var(--black-header);
+            font-size: 1.1rem;
+            color: var(--dark-navy);
             margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
         .category-card select {
             width: 100%;
             padding: 0.75rem;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #cbd5e1;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             background: #f8fafc;
             color: #1e293b;
             outline: none;
@@ -162,40 +217,53 @@
         }
 
         /* Buttons */
-        .btn-send { display: block; background: var(--pink-light); color: #111827; border: none; padding: 1.1rem; border-radius: 8px; font-weight: bold; margin-top: 2rem; width: 100%; text-align: center; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 133, 192, 0.4); transition: 0.3s; }
-        .btn-send:hover { background: var(--pink-hover); color: white; }
-
-        .btn-back-home {
-            display: inline-block;
-            margin-top: 1.5rem;
-            background: #374151;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+        .btn-send {
+            display: block;
+            background: linear-gradient(135deg, var(--gold-yellow), #f59e0b);
+            color: var(--dark-navy);
             border: none;
-            cursor: pointer;
+            padding: 1.1rem;
+            border-radius: 10px;
             font-weight: bold;
-            transition: 0.3s;
+            margin-top: 2rem;
+            width: 100%;
+            text-align: center;
+            font-size: 1.15rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
         }
-        .btn-back-home:hover {
-            background: var(--pink-light);
-            color: #111827;
+        .btn-send:hover {
+            background: linear-gradient(135deg, var(--soft-pink), var(--sky-blue));
+            color: white;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
         }
 
-        footer { background: var(--black-header); color: var(--pink-light); text-align: center; padding: 1.2rem; margin-top: 3rem; border-top: 2px solid var(--grey-border); }
+        footer {
+            background: var(--dark-navy);
+            color: var(--sky-blue-light);
+            text-align: center;
+            padding: 1.2rem;
+            margin-top: 3rem;
+            border-top: 3px solid var(--sky-blue);
+        }
     </style>
 </head>
 <body>
 
+    <!-- Top Bar with Home Icon -->
     <div class="top-bar">
-        <span style="font-size: 0.9rem; font-weight: bold; color: var(--pink-light); cursor: pointer;" onclick="goHome()">MGG Trading</span>
+        <button class="home-icon-btn" onclick="goHome()" title="الصفحة الرئيسية">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span id="homeIconText">الرئيسية</span>
+        </button>
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
     </div>
 
-    <!-- Header: عند الضغط على الهيدر يتم العودة للرئيسية فوراً -->
-    <header onclick="goHome()" title="اضغط للعودة إلى الصفحة الرئيسية">
-        <h1 id="title">شركة المعبر الخليجي للاستيراد والتصدير (MGG)</h1>
-        <p id="subtitle">Al-Moaber Gulf Group for Import & Export</p>
+    <!-- Header Banner -->
+    <header>
+        <h1 id="title">شركة معبر الخليج العصري للاستيراد والتصدير</h1>
+        <p id="subtitle">Modern Gulf Crossing for Import & Export</p>
     </header>
 
     <!-- Navigation Bar -->
@@ -212,19 +280,17 @@
 
     <div class="container">
 
-        <!-- 1. TAB: HOME (الصفحة الرئيسية) -->
+        <!-- 1. TAB: HOME -->
         <div id="tab-home" class="tab-content active">
-            <!-- Hero Banner -->
             <div class="hero">
                 <h2 id="heroTitle">الريادة في توريد المأكولات البحرية والأسماك بالجملة</h2>
                 <p id="heroDesc">نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.</p>
             </div>
 
-            <!-- About Company Card -->
             <div class="info-card">
-                <h2 id="aboutTitle">🏢 نبذة عن الشركة (About MGG)</h2>
+                <h2 id="aboutTitle">🏢 نبذة عن الشركة (About Modern Gulf Crossing)</h2>
                 <p id="aboutDesc">
-                    تعد <strong>شركة المعبر الخليجي للاستيراد والتصدير (MGG)</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>
+                    تعد <strong>شركة معبر الخليج العصري للاستيراد والتصدير</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>
                     تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.
                 </p>
             </div>
@@ -254,7 +320,6 @@
                 <p id="visDesc">
                     أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.
                 </p>
-                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -268,7 +333,6 @@
                     • <strong>كفاءة التوريد:</strong> سرعة فائقة في النقل والالتزام بالمواعيد لحماية سلسلة التبريد.<br>
                     • <strong>السلامة الغذائية:</strong> تطبيق متطلبات الاشتراطات الصحية والمعايير الدولية للسلامة الغذائية.
                 </p>
-                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -336,7 +400,6 @@
             <div class="info-card">
                 <h2 id="newsTitle">📰 التطورات والأخبار (News)</h2>
                 <p id="newsDesc">توسيع خطوط التوريد والشحن البحري عبر الممرات الاستراتيجية ومضيق هرمز، مما يضمن وصول أحدث شحنات الأسماك الطازجة والمجمدة فور صيدها للموزعين والمطاعم والموردين بأعلى معايير الطزاجة.</p>
-                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
@@ -344,21 +407,18 @@
         <div id="tab-contact" class="tab-content">
             <div class="info-card" style="text-align: center;">
                 <h2 id="contactTitle" style="justify-content: center;">📞 تواصل معنا (Contacts us)</h2>
-                <p style="margin-bottom: 1rem;" id="contactDesc">نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.</p>
+                <p style="margin-bottom: 1.5rem;" id="contactDesc">نحن جاهزون لتلبية طلبات الجملة والاستفسارات التجارية على مدار الساعة.</p>
                 <button onclick="sendToWhatsApp()" class="btn-send" id="contactBtn" style="max-width: 320px; margin: auto;">تواصل مباشر عبر الواتساب 📲</button>
-                <br>
-                <button class="btn-back-home" onclick="goHome()">🏠 العودة للصفحة الرئيسية</button>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p id="footerText">&copy; جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)</p>
+        <p id="footerText">&copy; جميع الحقوق محفوظة لشركة معبر الخليج العصري</p>
     </footer>
 
     <script>
-        /* Product Data Dictionary */
         const productData = {
             ar: {
                 fishPlaceholder: "-- اختر نوع السمك المطلوبة (اختياري) --",
@@ -421,7 +481,7 @@
             populateSelect('selectFrozen', data.frozenPlaceholder, data.frozen);
         }
 
-        /* Go Home Function */
+        /* Go Home Function (Driven by Home Icon) */
         function goHome() {
             const homeBtn = document.getElementById('mHome');
             openTab({ currentTarget: homeBtn }, 'tab-home');
@@ -471,7 +531,7 @@
                     return;
                 }
 
-                let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة MGG:%0A%0A`;
+                let message = `السلام عليكم ورحمة الله، أرغب في الاستفسار عن طلب جملة عبر شركة معبر الخليج العصري:%0A%0A`;
                 message += `📦 *الكمية المطلوبة:* ${qty}%0A`;
                 message += `🐟 *الأصناف المختارة:*%0A- ` + selectedItems.join('%0A- ');
 
@@ -490,7 +550,7 @@
                     return;
                 }
 
-                let message = `Hello, I would like to inquire about a wholesale order via MGG Group:%0A%0A`;
+                let message = `Hello, I would like to inquire about a wholesale order via Modern Gulf Crossing:%0A%0A`;
                 message += `📦 *Required Quantity:* ${qty}%0A`;
                 message += `🐟 *Selected Items:*%0A- ` + selectedItems.join('%0A- ');
 
@@ -499,7 +559,7 @@
             }
         }
 
-        /* Bilingual Toggle */
+        /* Language Toggle */
         let currentLang = 'ar';
         function toggleLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
@@ -507,16 +567,18 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
             document.getElementById('langBtn').innerText = currentLang === 'ar' ? 'English' : 'عربي';
-            document.getElementById('title').innerText = currentLang === 'ar' ? 'شركة المعبر الخليجي للاستيراد والتصدير (MGG)' : 'Al-Moaber Gulf Group for Import & Export (MGG)';
-            document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Al-Moaber Gulf Group for Import & Export' : 'Wholesale Seafood Import & Export';
+            document.getElementById('homeIconText').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
+            
+            document.getElementById('title').innerText = currentLang === 'ar' ? 'شركة معبر الخليج العصري للاستيراد والتصدير' : 'Modern Gulf Crossing for Import & Export';
+            document.getElementById('subtitle').innerText = currentLang === 'ar' ? 'Modern Gulf Crossing for Import & Export' : 'Wholesale Seafood Import & Export';
             
             document.getElementById('heroTitle').innerText = currentLang === 'ar' ? 'الريادة في توريد المأكولات البحرية والأسماك بالجملة' : 'Leaders in Wholesale Seafood & Fish Supply';
             document.getElementById('heroDesc').innerText = currentLang === 'ar' ? 'نحن شريكك الموثوق لتأمين أفضل أجواد الأسماك الطازجة والمجمدة، والقشريات والرخويات، معتمدين على شبكة توريد لوجستية عالمية تربط الأسواق الخليجية بأحدث المصايد الدولية عبر خطوط الشحن الاستراتيجية.' : 'Your trusted partner for fresh & frozen fish, crustaceans, and mollusks, backed by a global supply chain connecting Gulf markets with international fisheries.';
             
-            document.getElementById('aboutTitle').innerText = currentLang === 'ar' ? '🏢 نبذة عن الشركة (About MGG)' : '🏢 About The Company (MGG)';
+            document.getElementById('aboutTitle').innerText = currentLang === 'ar' ? '🏢 نبذة عن الشركة (About Modern Gulf Crossing)' : '🏢 About The Company (Modern Gulf Crossing)';
             document.getElementById('aboutDesc').innerHTML = currentLang === 'ar' ? 
-                'تعد <strong>شركة المعبر الخليجي للاستيراد والتصدير (MGG)</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.' :
-                '<strong>Al-Moaber Gulf Group for Import & Export (MGG)</strong> is a leading company specialized in wholesale trading and supply of seafood and fish across the Arabian Gulf and Middle East.<br><br>We rely on an advanced cold-chain logistics system ensuring top product freshness from fisheries to distributors, hotels, restaurants, and supermarkets. Supported by strategic maritime connections via the Strait of Hormuz, we guarantee continuous supply with highest international quality standards.';
+                'تعد <strong>شركة معبر الخليج العصري للاستيراد والتصدير</strong> واحدة من الشركات الرائدة المتخصصة في تجارة وتوريد المأكولات البحرية والأسماك بالجملة في منطقة الخليج العربي والشرق الأوسط.<br><br>تعتمد الشركة على منظومة لوجستية متطورة تضمن الحفاظ على "سلسلة التبريد" من لحظة صيد الأسماك وحتى وصولها إلى الموزعين، الفنادق، المطاعم، والمتاجر الكبرى. وبفضل علاقاتنا الاستراتيجية عبر مضيق هرمز والممرات البحرية الدولية، نضمن استدامة التوريد بأعلى معايير طزاجة وجودة المأكولات البحرية العالمية.' :
+                '<strong>Modern Gulf Crossing for Import & Export</strong> is a leading company specialized in wholesale trading and supply of seafood and fish across the Arabian Gulf and Middle East.<br><br>We rely on an advanced cold-chain logistics system ensuring top product freshness from fisheries to distributors, hotels, restaurants, and supermarkets. Supported by strategic maritime connections via the Strait of Hormuz, we guarantee continuous supply with highest international quality standards.';
 
             /* Navigation Translations */
             document.getElementById('mHome').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
@@ -526,7 +588,7 @@
             document.getElementById('mNews').innerText = currentLang === 'ar' ? 'التطورات / الأخبار' : 'News';
             document.getElementById('mContact').innerText = currentLang === 'ar' ? 'تواصل معنا' : 'Contacts us';
 
-            /* Vision / Value / News / Contact */
+            /* Section Translations */
             document.getElementById('visTitle').innerText = currentLang === 'ar' ? '👁️ الرؤية (Our Vision)' : '👁️ Our Vision';
             document.getElementById('visDesc').innerHTML = currentLang === 'ar' ? 
                 'أن نكون <strong>الخيار الأول والمورد الأكثر موثوقية</strong> في قطاع تجارة واستيراد المأكولات البحرية على مستوى الخليج العربي والشرق الأوسط، من خلال تطبيق أعلى معايير الجودة العالمية، وتقديم حلول توريد مستدامة تلبي تطلعات كبرى الشركات والمؤسسات الغذائية.' :
@@ -553,7 +615,6 @@
             document.getElementById('formSub').innerText = currentLang === 'ar' ? 'حدد الصنف المطلوب والكمية ليصلك عرض السعر المباشر' : 'Select required items and quantity to receive instant price quotation';
             document.getElementById('qtyLabel').innerText = currentLang === 'ar' ? 'الكمية المطلوبة (من 50 كيلو إلى 100 طن):' : 'Required Quantity (50 kg to 100 Tons):';
             
-            /* Category Headers */
             document.getElementById('cat1Header').innerText = currentLang === 'ar' ? '🐟 1. الأسماك (Fish)' : '🐟 1. Fish';
             document.getElementById('cat2Header').innerText = currentLang === 'ar' ? '🦐 2. القشريات (Crustaceans)' : '🦐 2. Crustaceans';
             document.getElementById('cat3Header').innerText = currentLang === 'ar' ? '🦑 3. الرخويات (Mollusks)' : '🦑 3. Mollusks';
@@ -562,13 +623,11 @@
             document.getElementById('cat6Header').innerText = currentLang === 'ar' ? '🧊 6. منتجات بحرية مجمدة ومجهزة (Frozen & Prepared)' : '🧊 6. Frozen & Prepared Products';
 
             document.getElementById('sendBtn').innerText = currentLang === 'ar' ? 'إرسال الطلب عبر واتساب 📲' : 'Send Order via WhatsApp 📲';
-            document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة المعبر الخليجي (MGG)' : '© All Rights Reserved - Al-Moaber Gulf Group (MGG)';
+            document.getElementById('footerText').innerText = currentLang === 'ar' ? '© جميع الحقوق محفوظة لشركة معبر الخليج العصري' : '© All Rights Reserved - Modern Gulf Crossing';
 
-            /* Re-render dropdown items in selected language */
             renderDropdowns(currentLang);
         }
 
-        /* Initial Render on Load */
         renderDropdowns('ar');
     </script>
 </body>
